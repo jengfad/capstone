@@ -1,0 +1,31 @@
+(1)	https://mitsloan.mit.edu/ideas-made-to-matter/blockchain-explained
+(2)	https://shootskill.com/blockchain/blockchain-explained/
+(3)	Nakamoto S. Bitcoin: A peer-to-peer electronic cash system, 2008.
+(4) Dylan Yaga, Peter Mell, Nik Roby, Karen Scarfone - Blockchain Technology Overview
+https://arxiv.org/ftp/arxiv/papers/1906/1906.11078.pdf
+(5) https://blog.infura.io/an-introduction-to-ipfs/ An Introduction to IPFS
+(6) When Blockchain Meets Distributed File Systems: An Overview, Challenges, and Open Issues
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9031420
+(7) Juan Benet - IPFS - Content Addressed, Versioned, P2P File System (Draft 3)
+(8) https://hackernoon.com/merkle-trees-181cb4bc30b4?ref=hackernoon.com
+(9) https://proto.school/merkle-dags/04
+(10) https://corpgov.law.harvard.edu/2018/05/26/an-introduction-to-smart-contracts-and-their-potential-and-inherent-limitations/
+(11) https://www.linkedin.com/pulse/real-world-example-smart-contract-marvin-felder/
+(12) Cryptographic Hash-Function Basics https://link.springer.com/content/pdf/10.1007/978-3-540-25937-4_24.pdf
+(13) Analysis of Secure Hash Algorithm (SHA) 512 for Encryption https://www.researchgate.net/profile/Imam-Riadi-2/publication/327392778_Analysis_of_Secure_Hash_Algorithm_SHA_512_for_Encryption_Process_on_Web_Based_Application/links/5b8cbe5e4585151fd1447946/Analysis-of-Secure-Hash-Algorithm-SHA-512-for-Encryption-Process-on-Web-Based-Application.pdf
+(14) Blockchain-Based Secure Storage and Access Scheme For Electronic Medical Records in IPFS https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9045940
+(15) http://www.csroc.org.tw/journal/JOC29_6/JOC-2906-15.pdf - IPFS Storage scheme
+(16) Smart contract sample algorithm - http://repository.uwl.ac.uk/id/eprint/5926/1/Arshad_etal_CEE_2019_Decentralized_document_version_control_using_ethereum_blockchain_and_IPFS.pdf
+
+Others
+https://www.isical.ac.in/~debrup/slides/Bitcoin.pdf
+
+https://sci-hub.ren/https://link.springer.com/article/10.1007/s12599-017-0506-0
+
+https://medium.com/textileio/whats-really-happening-when-you-add-a-file-to-ipfs-ae3b8b5e4b0f
+
+https://datatracker.ietf.org/meeting/interim-2020-dinrg-01/materials/slides-interim-2020-dinrg-01-sessa-an-overview-of-the-interplanetary-file-system-ipfs-00
+
+
+with flowchart if ipfs
+https://www.freecodecamp.org/news/technical-guide-to-ipfs-decentralized-storage-of-web3/
