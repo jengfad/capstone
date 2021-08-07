@@ -1,15 +1,17 @@
 FORMATTED
 
+Jack Tsai, Gary Bond. 2007. A comparison of electronic records to paper records in mental health centers
+
+Mohamed Khalifa. 2018. Perceived Benefits of Implementing and Using Hospital Information Systems and Electronic Medical Records
+
 Ryan Ebardo, Nelson Celis. 2019. Barriers to the Adoption of Electronic Medical Records in  Select Philippine Hospitals: A Case Study Approach
 
+Ryan Ebardo, John Byron Tuazon. 2019. Identifying Healthcare Information Systems Enablers in a Developing Economy 
+
+Jaillah Mae Gesulga,  Almarie Berjame, Kristelle Sheen Moquiala, Adrian Galido. 2017. Barriers to Electronic Health Record System Implementation and Information Systems Resources: A Structured Review
 
 
-
-
-
-
-
-
+improving access to data during patient encounters, improving processes workflow, managing information overflow to clinicians, enhancing medical decision-making process care plans, supporting operational processes and improving financial data accessibility
 
 
 
@@ -24,9 +26,10 @@ Ryan Ebardo, Nelson Celis. 2019. Barriers to the Adoption of Electronic Medical 
 ---------------------------------------------------------------------
 
 
-
-
-
+Philippines Blockchain EMR Study
+Alison O. Perez and Thelma Domingo-Palaoag 2021
+Blockchain-based Model for Health Information Exchange: A Case for Simulated Patient Referrals Using an Electronic Medical Record
+doi:10.1088/1757-899X/1077/1/012059
 
 
 
