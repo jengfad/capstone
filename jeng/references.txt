@@ -12,27 +12,54 @@ Jaillah Mae Gesulga,  Almarie Berjame, Kristelle Sheen Moquiala, Adrian Galido. 
 
 Ralph Merkle. 1989. A Certified Digital Signature
 
+Juan Benet. 2014. IPFS - content addressed, versioned, P2P file system (draft 3)
+
+Petar Maymounkov and David Mazieres. 2002. Kademlia: A peer-to-peer information system based on the xor metric
+
+Michael J. Freedman, Eric Freudenthal, David Mazieres. 2004. Democratizing content publication with Coral
+
+Ingmar Baumgart, Sebastian Mies. 2007. S/kademlia: A practicable approach towards secure key-based routing.
+
+National Institute of Standards and Technology. 2002. FIPS-180-2: Secure Hash Standard (SHS)
+
+Hirotaka Yoshida, Alex Biryukov. 2005. Analysis of a SHA-256 Variant
+
+Henri Gilbert, Helena Handschuh. 2004. Security Analysis of SHA-256 and Sisters
+
+Alfred Menezes, Paul van Oorschot, Scott Vanstone. 1997. Handbook of Applied Cryptography
+
+Nicolas Sklavos, Odysseas G. Koufopavlou. 2003. On the hardware implementation of the SHA-2 (256, 384, 512) Hash functions
+
+Michael Szydlo. 2003. Merkle tree traversal in log space and time
+
+S. Micali, M. Jakobsson, T. Leighton, M. Szydlo. 2003. Fractal merkle tree representation and traversal.
+
+Ming Xie. 2003. P2P Systems based on Distributed Hash Table
+
+Nick Szabo. 1997. Smart contracts: formalizing and securing relationships on public networks.
+
+Dylan Yaga, Peter Mell, Nik Roby, Karen Scarfone. 2018. Blockchain Technology Overview
+
+Joseph Abadi, Markus Brunnermeier. 2018. Blockchain Economics
+
+Zibin Zheng, Shaoan Xie, Hong-Ning Dai, Xiangping Chen. 2017. An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends
+
+Ahmed Afif Monrat, Olov Schelén, Karl Andersson. 2019.  A Survey of Blockchain From the Perspectives of Applications, Challenges, and Opportunities
+
+Eiichiro Fujisaki, Tatsuaki Okamoto. 2011. Secure Integration of Asymmetric and Symmetric Encryption Schemes
+
+Mihir Bellare, Anand Desai, David Pointcheval, Phillip Rogaway. 1998. Relations among notions of security for public-key encryption schemes
+
+Shafi Goldwasser Silvio Micali. 1984. Probabilistic encryption
+
+---------------------------------------------------------------------
+
 Xinming Yin, Junhui He, Yi Guo, Dezhi Han, Kuan-Ching Li, Arcangelo Castiglione. 2020. An Efficient Two-Factor Authentication Scheme Based on the Merkle Tree
 
 Ivan Damgard. 1990. A design principle for hash functions
 
-Han, D.; Pan, N.; Li, K. A traceable and revocable ciphertext-policy attribute-based encryption scheme based on privacy protection. IEEE Trans. Dependable Secur. Comput. 2002
 
 Merkle-tree based approach for ensuring integrity of electronic medical records
-
-Juan Benet. 2014. IPFS - content addressed, versioned, P2P file system (draft 3)
-
-P. Maymounkov and D. Mazieres. 2002. Kademlia: A peer-to-peer information system based on the xor metric
-
-M. J. Freedman, E. Freudenthal, D. Mazieres. 2004. Democratizing content publication with coral.
-
-
-
-
-
-
----------------------------------------------------------------------
-
 
 Philippines Blockchain EMR Study
 Alison O. Perez and Thelma Domingo-Palaoag 2021
