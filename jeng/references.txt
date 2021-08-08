@@ -10,13 +10,21 @@ Ryan Ebardo, John Byron Tuazon. 2019. Identifying Healthcare Information Systems
 
 Jaillah Mae Gesulga,  Almarie Berjame, Kristelle Sheen Moquiala, Adrian Galido. 2017. Barriers to Electronic Health Record System Implementation and Information Systems Resources: A Structured Review
 
+Ralph Merkle. 1989. A Certified Digital Signature
 
-improving access to data during patient encounters, improving processes workflow, managing information overflow to clinicians, enhancing medical decision-making process care plans, supporting operational processes and improving financial data accessibility
+Xinming Yin, Junhui He, Yi Guo, Dezhi Han, Kuan-Ching Li, Arcangelo Castiglione. 2020. An Efficient Two-Factor Authentication Scheme Based on the Merkle Tree
 
+Ivan Damgard. 1990. A design principle for hash functions
 
+Han, D.; Pan, N.; Li, K. A traceable and revocable ciphertext-policy attribute-based encryption scheme based on privacy protection. IEEE Trans. Dependable Secur. Comput. 2002
 
+Merkle-tree based approach for ensuring integrity of electronic medical records
 
+Juan Benet. 2014. IPFS - content addressed, versioned, P2P file system (draft 3)
 
+P. Maymounkov and D. Mazieres. 2002. Kademlia: A peer-to-peer information system based on the xor metric
+
+M. J. Freedman, E. Freudenthal, D. Mazieres. 2004. Democratizing content publication with coral.
 
 
 
