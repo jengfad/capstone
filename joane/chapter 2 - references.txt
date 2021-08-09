@@ -8,7 +8,11 @@ Tkachenko, Iuliia; Puech, William; Destruel, Christophe; Strauss, Olivier; Gaudi
 Krollner, Bjoern; Vanstone, Bruce; Finnie, Gavin; (2010). Financial time series forecasting with machine learning techniques: A survey
 Taieb, Souhaib Ben; Bontempi, Gianluca; Atiya, Amir F; Sorjamaa, Antti; (2012). A review and comparison of strategies for multi-step ahead time series forecasting based on the nn5 forecasting competition.
 Cerqueira, Vitor; Torgo, Luis; Soares, Carlos; 2019. Machine Learning vs Statistical Methods for Time Series Forecasting: Size Matters
-
+Weigend, A.S., Gershenfeld, N.A.: Time Series Prediction: forecasting the future and understanding the past. Addison Wesley, Harlow (1994)
+Cheng, H., Tan, P.-N., Gao, J., Scripps, J.: Multistep-Ahead Time Series Prediction. In: Ng, W.-K., Kitsuregawa, M., Li, J., Chang, K. (eds.) PAKDD 2006. LNCS (LNAI), vol. 3918, pp. 765–774. Springer, Heidelberg (2006)
+Sorjamaa, A., Lendasse, A.: Time series prediction using dirrec strategy. In: Verleysen, M. (ed.) European Symposium on Artificial Neural Networks, ESANN 2006, Bruges, Belgium, April 26-28, pp. 143–148 (2006)
+G. E. P. Box, G. M. Jenkins, and G. C. Reinsel, Time Series Analysis Forecasting and Control, Third ed. Englewood Cliffs, NJ: PrenticeHall, 1994
+Sima Siami-Namini, Neda Tavakoli, Akbar Siami Namin, 2018. A Comparison of ARIMA and LSTM in Forecasting Time Series
 
 
 KEYWORDS
