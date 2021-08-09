@@ -1,0 +1,40 @@
+statement of the problem - 8
+Objectives of the Study - 8
+Scope and Limitations - 8
+Significance of the Study - 9
+REVIEW OF RELATED LITERATURE - 10
+Theoretical Framework - 20
+Conceptual Framework - 30
+METHODOLOGY - 33
+Requirement Modelling - 34
+Quick Design - 42
+LIST OF REFERENCES - 50
+
+
+figure
+Figure 3.1 – Diagram of Proposed Solution - 20
+Figure 3.2 – Hashing Process - 21
+Figure 3.3 – Generic Blockchain Transactions - 23
+Figure 3.4 – Merkle Tree Implementation using hashes - 25
+Figure 3.5 – DAG Illustration =- 26
+Figure 3.6 – Merkle DAG implemented on a file system - 27
+Figure 3.7 – OpenPGP Two-way process - 28
+Figure 3.8 – Smart Contract comparison - 29
+Figure 3.9 – Conceptual Framework - 31
+Figure 4.1 Prototype Model Phases and Process - 33
+Figure 4.2 – Sample Rapid Antigen Test Result - 35
+Figure 4.3 - Sample Real-Time Polymerase Chain Reaction (RT-PCR) Test Result - 36
+Figure 4.4 - Sample Covid Vaccination Certificate - 37
+Figure 4.5 – Merkle DAG representing sample records - 40
+Figure 4.6 – Context Diagram - 42
+Figure 4.7 – Data Flow Diagram - 43
+Figure 4.8 – Proposed Use Case Diagram - 44
+Figure 4.9 – Transactional Operation Diagram - 45
+Figure 4.10 – Key Generation Process Flowchart - 45
+Figure 4.11 – Third party access to patient file Flowchart - 46
+Figure 4.12 – File Uploading Flowchart - 47
+Figure 4.13 – File Retrieval Flowchart - 48
+
+
+table 
+Figure 2.1 – SHA-1 and SHA-2 Comparison - 12
