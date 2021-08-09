@@ -1,0 +1,19 @@
+References:
+Qianyu, Ji, (2014). Exploring concept of QR Code and the benefits of using QR Code for companies
+International standard ISO/IEC 18004, (2000). Information technology Automatic identification and data capture techniques Bar code symbology QR Code
+Chatfield, Chris, (2000). Time-series Forecasting
+Palit, Ajoy K.; Popovic, Dobrivoje., (2005). Computational Intelligence in Time Series Forecasting: Theory and Engineering Applications. Advances in Industrial Control.
+Walker, J.D. (2011). QR Codes Are the Next Marketing Wave
+Tkachenko, Iuliia; Puech, William; Destruel, Christophe; Strauss, Olivier; Gaudin, Jean-Marc; Guichard, Christian; (2016). Two-Level QR Code for Private Message Sharing and Document Authentication
+Krollner, Bjoern; Vanstone, Bruce; Finnie, Gavin; (2010). Financial time series forecasting with machine learning techniques: A survey
+Taieb, Souhaib Ben; Bontempi, Gianluca; Atiya, Amir F; Sorjamaa, Antti; (2012). A review and comparison of strategies for multi-step ahead time series forecasting based on the nn5 forecasting competition.
+Cerqueira, Vitor; Torgo, Luis; Soares, Carlos; 2019. Machine Learning vs Statistical Methods for Time Series Forecasting: Size Matters
+
+
+
+KEYWORDS
+quick response code
+time series forecasting
+moving average
+autoregressive
+arima

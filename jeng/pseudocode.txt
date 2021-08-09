@@ -1,0 +1,15 @@
+pseudocode
+
+- patients register to coviblock
+	- generates public and private keys
+		- keys are required for a file to be uploaded
+	
+- authorized personnel uploads files
+	- on-demand upload
+	- if public key exists for a patient, 
+		upload file
+	  else
+		no upload
+	- only authorized personnel are allowed to upload
+
+- 3rd party will ask access
