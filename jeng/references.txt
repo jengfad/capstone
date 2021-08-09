@@ -1,56 +1,56 @@
 FORMATTED
 
-Jack Tsai, Gary Bond. 2007. A comparison of electronic records to paper records in mental health centers
+Tsai, Jack and Bond, Gary (2007). A comparison of electronic records to paper records in mental health centers
 
-Mohamed Khalifa. 2018. Perceived Benefits of Implementing and Using Hospital Information Systems and Electronic Medical Records
+Khalifa, Mohamed (2018). Perceived Benefits of Implementing and Using Hospital Information Systems and Electronic Medical Records
 
-Ryan Ebardo, Nelson Celis. 2019. Barriers to the Adoption of Electronic Medical Records in  Select Philippine Hospitals: A Case Study Approach
+Ebardo, Ryan and Celis, Nelson (2019). Barriers to the Adoption of Electronic Medical Records in  Select Philippine Hospitals: A Case Study Approach
 
-Ryan Ebardo, John Byron Tuazon. 2019. Identifying Healthcare Information Systems Enablers in a Developing Economy 
+Ebardo, Ryan and Tuazon, John Byron (2019). Identifying Healthcare Information Systems Enablers in a Developing Economy 
 
-Jaillah Mae Gesulga,  Almarie Berjame, Kristelle Sheen Moquiala, Adrian Galido. 2017. Barriers to Electronic Health Record System Implementation and Information Systems Resources: A Structured Review
+Gesulga, Jaillah Mae; Berjame, Almarie; Moquiala, Kristelle Sheen; Galido, Adrian (2017). Barriers to Electronic Health Record System Implementation and Information Systems Resources: A Structured Review
 
-Ralph Merkle. 1989. A Certified Digital Signature
+Merkle, Ralph (1989). A Certified Digital Signature
 
-Juan Benet. 2014. IPFS - content addressed, versioned, P2P file system (draft 3)
+Benet, Juan (2014). IPFS - content addressed, versioned, P2P file system (draft 3)
 
-Petar Maymounkov and David Mazieres. 2002. Kademlia: A peer-to-peer information system based on the xor metric
+Maymounkov, Petar and Mazieres, David (2002). Kademlia: A peer-to-peer information system based on the xor metric
 
-Michael J. Freedman, Eric Freudenthal, David Mazieres. 2004. Democratizing content publication with Coral
+Freedman, Michael J.; Freudenthal, Eric; Mazieres, David (2004). Democratizing content publication with Coral
 
-Ingmar Baumgart, Sebastian Mies. 2007. S/kademlia: A practicable approach towards secure key-based routing.
+Baumgart, Ingmar and Mies, Sebastian (2007). S/kademlia: A practicable approach towards secure key-based routing.
 
-National Institute of Standards and Technology. 2002. FIPS-180-2: Secure Hash Standard (SHS)
+National Institute of Standards and Technology (2002). FIPS-180-2: Secure Hash Standard (SHS)
 
-Hirotaka Yoshida, Alex Biryukov. 2005. Analysis of a SHA-256 Variant
+Yoshida Hirotaka and Biryukov, Alex (2005). Analysis of a SHA-256 Variant
 
-Henri Gilbert, Helena Handschuh. 2004. Security Analysis of SHA-256 and Sisters
+Gilbert Henri and Handschuh, Helena (2004). Security Analysis of SHA-256 and Sisters
 
-Alfred Menezes, Paul van Oorschot, Scott Vanstone. 1997. Handbook of Applied Cryptography
+Menezes, Alfred; van Oorschot, Paul; Vanstone, Scott (1997). Handbook of Applied Cryptography
 
-Nicolas Sklavos, Odysseas G. Koufopavlou. 2003. On the hardware implementation of the SHA-2 (256, 384, 512) Hash functions
+Sklavos, Nicolas and Koufopavlou, Odysseas G. (2003). On the hardware implementation of the SHA-2 (256, 384, 512) Hash functions
 
-Michael Szydlo. 2003. Merkle tree traversal in log space and time
+Szydlo, Michael (2003). Merkle tree traversal in log space and time
 
-S. Micali, M. Jakobsson, T. Leighton, M. Szydlo. 2003. Fractal merkle tree representation and traversal.
+Micali, Silvio; Jakobsson, Markus; Leighton, Tom; Szydlo, Michael (2003). Fractal merkle tree representation and traversal.
 
-Ming Xie. 2003. P2P Systems based on Distributed Hash Table
+Xie, Ming (2003). P2P Systems based on Distributed Hash Table
 
-Nick Szabo. 1997. Smart contracts: formalizing and securing relationships on public networks.
+Szabo, Nick (1997). Smart contracts: formalizing and securing relationships on public networks.
 
-Dylan Yaga, Peter Mell, Nik Roby, Karen Scarfone. 2018. Blockchain Technology Overview
+Yaga, Dylan; Mell, Peter; Roby, Nik; Scarfone, Karen (2018). Blockchain Technology Overview
 
-Joseph Abadi, Markus Brunnermeier. 2018. Blockchain Economics
+Abadi, Joseph and Brunnermeier, Markus (2018). Blockchain Economics
 
-Zibin Zheng, Shaoan Xie, Hong-Ning Dai, Xiangping Chen. 2017. An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends
+Zheng, Zibin; Xie, Shaoan; Dai, Hong-Ning; Chen, Xiangping (2017). An Overview of Blockchain Technology: Architecture, Consensus, and Future Trends
 
-Ahmed Afif Monrat, Olov Schelén, Karl Andersson. 2019.  A Survey of Blockchain From the Perspectives of Applications, Challenges, and Opportunities
+Monrat, Ahmed Afif; Schelén, Olov; Andersson, Karl (2019).  A Survey of Blockchain From the Perspectives of Applications, Challenges, and Opportunities
 
-Eiichiro Fujisaki, Tatsuaki Okamoto. 2011. Secure Integration of Asymmetric and Symmetric Encryption Schemes
+Fujisaki, Eiichiro and Okamoto, Tatsuaki (2011). Secure Integration of Asymmetric and Symmetric Encryption Schemes
 
-Mihir Bellare, Anand Desai, David Pointcheval, Phillip Rogaway. 1998. Relations among notions of security for public-key encryption schemes
+Bellare, Mihir; Desai Anand; Pointcheval, David; Rogaway, Phillip (1998). Relations among notions of security for public-key encryption schemes
 
-Shafi Goldwasser Silvio Micali. 1984. Probabilistic encryption
+Goldwasser, Shafi and Micali, Silvio (1984). Probabilistic encryption
 
 ---------------------------------------------------------------------
 
