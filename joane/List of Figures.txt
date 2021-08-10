@@ -1,0 +1,25 @@
+Figure 2.1 Sample Time Series Data					12
+Figure 3.1 Positioning, alignment, data in a QR code			18
+Figure 3.2 QR barcode pointing to a web page				18
+Figure 3.3 QR barcode with five lines of text in it			18
+Figure 3.4 IPO Diagram of Quarantine Pass Generation			23
+Figure 3.5 IPO Diagram of Quarantine Pass Validation			24
+Figure 3.6 IPO Diagram for Decision Support System			24
+Figure 4.1 Prototype Model						26
+Figure 4.2 Sample Quarantine Pass					28
+Figure 4.3 Sample of Non- Series Plot					30
+Figure 4.4 Sample Stationary Series Plot				30
+Figure 4.5 Context Diagram						32
+Figure 4.6 Data Flow Diagram						33
+Figure 4.7 Use Case Diagram						34
+Figure 4.8 Resident System Registration Flow				35			
+Figure 4.9 Essential Establishment System Registration Flow		36
+Figure 4.10 Generate Quarantine Pass Flow				37
+Figure 4.11 Scan Quarantine Pass Flow					38
+Figure 4.12 Generate Statistical Information Flow			39
+
+
+Table 4.1
+Verbal Interpretation Reference on Weighted Mean			40
+
+
