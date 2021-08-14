@@ -1,0 +1,26 @@
+References:
+
+
+Cai J., Sun, W., Huang, J., Gamber, M., Wu, J., He G. (2020).
+Indirect Virus Transmission in Cluster of COVID-19 Cases, 1
+
+
+Badr. H., Du, H., Marshall, M., Dong,E., Squire, M., Gardner, L.  (2020).
+Association between mobility patterns and COVID-19 transmission in the USA: a mathematical modelling study,
+The Lancet Infectious Diseases,
+Volume 20, Issue 11, 2,7.
+
+
+COVID-19 Dashboard, Republic of the Philippines, accessed 7 August 2021, <https://www.covid19.gov.ph/security/ecq>
+
+Department of the Interior and Local Government Bicol Region, Republic of the Philippines, accessed 7 August 2021,
+<http://region5.dilg.gov.ph/advisory-distribution-of-barangay-quarantine-id-pass/>
+
+Inter-Agency Task Force for the Management of Emerging Infectious Diseases (IATF – EID), Republic of the Philippines, accessed 7 August 2021, <https://iatf.doh.gov.ph/?page_id=680>
+
+Inquirer.net, Inquirer, accessed 7 August 2021, <https://newsinfo.inquirer.net/1247189/lanao-del-sur-village-chief-nabbed-for-selling-quarantine-pass-for-p20>
+
+Chaolin Huang, Yeming Wang, Xingwang Li, Lili Ren, Jianping Zhao, Yi Hu, Li Zhang, Guohui Fan, Jiuyang Xu, Xiaoying Gu, Zhenshun Cheng, Ting Yu, Jiaan Xia, Yuan Wei, Wenjuan Wu, Xuelei Xie, Wen Yin, Hui Li, Min Liu, Yan Xiao, Hong Gao, Li Guo, Jungang Xie, Guangfa Wang, Rongmeng Jiang, Zhancheng Gao, Qi Jin, Jianwei Wang, Bin Cao (2020).
+Clinical features of patients infected with 2019 novel coronavirus in Wuhan, China,
+The Lancet,
+Volume 395, Issue 10223, 1.
