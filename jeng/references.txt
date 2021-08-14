@@ -52,6 +52,13 @@ Bellare, Mihir; Desai Anand; Pointcheval, David; Rogaway, Phillip (1998). Relati
 
 Goldwasser, Shafi and Micali, Silvio (1984). Probabilistic encryption
 
+BitFury Group and Garzik, Jeff 2015. Public versus private blockchains. White Paper, 2015.
+
+De Angelis, Stefano; Aniello, Leonardo; Baldoni, Roberto; Lombardi, Federico; Margheri, Andrea; Sassone, Vladimiro (2018). PBFT vs Proof-of-Authority: Applying the CAP Theorem to Permissioned Blockchain
+
+
+
+
 ---------------------------------------------------------------------
 
 Xinming Yin, Junhui He, Yi Guo, Dezhi Han, Kuan-Ching Li, Arcangelo Castiglione. 2020. An Efficient Two-Factor Authentication Scheme Based on the Merkle Tree
@@ -88,6 +95,7 @@ https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9031420
 (14) Blockchain-Based Secure Storage and Access Scheme For Electronic Medical Records in IPFS https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9045940
 (15) http://www.csroc.org.tw/journal/JOC29_6/JOC-2906-15.pdf - IPFS Storage scheme
 (16) Smart contract sample algorithm - http://repository.uwl.ac.uk/id/eprint/5926/1/Arshad_etal_CEE_2019_Decentralized_document_version_control_using_ethereum_blockchain_and_IPFS.pdf
+(17) 
 
 Others
 https://www.isical.ac.in/~debrup/slides/Bitcoin.pdf
@@ -104,3 +112,6 @@ https://www.freecodecamp.org/news/technical-guide-to-ipfs-decentralized-storage-
 
 with algorithm
 https://blog.wolfram.com/2021/05/12/using-ipfs-filecoin-and-the-wolfram-language-to-build-a-unified-decentralized-services-interface/
+
+
+
