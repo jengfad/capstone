@@ -1,0 +1,131 @@
+
+blockchain only
+
+*MedRec: Using Blockchain for Medical Data Access and Permission Management 
+- Azaria, Asaph; Ekblaw, Ariel; Vieira, Thiago; Lippman, Andrew; 2016
+- shown how principles of decentralization might be applied to largescale data management in an EMR system.
+- We demonstrate an innovative approach for handling medical records, providing auditability, interoperability and accessibility via a comprehensive log.
+- Ethereum + data is stored in centralized SQL
+
+
+*Secure Cloud Storage Architecture for Digital Medical Record in Cloud Environment using Blockchain 
+- Sharma, Saurabh; Mishra, Ashish; Lala, Ajay; Singhai, Deeksha; 2020
+- pow blockchain, cloud database, did not specify encryption algo 
+
+
+-----------------------------------------------------------------
+blockchain + ipfs
+
+
+*A Secure and Distributed Framework for sharing COVID-19 patient Reports using Consortium Blockchain and IPFS
+- Kumar, Randhir and Tripathi, Rakesh 2020
+- pow, ipfs
+-  To receive the Proof of Identity (PoI), the healthcare provider must participate (register) in a consortium network.
+- patient does not have access to system
+- system is more of a provider to provider data sharing
+- not encrypted
+
+*Electronic medical record security sharing model based on blockchain
+- Wu, Sihua; Du, Jiang  2019
+- DPOS delegated proof of stake
+- medical images in DCM format
+- data masking instead of encryption
+- no access control for patient
+- does not encrypt uploaded files in IPFS
+
+
+-----------------------------------------------------------------
+
+blockchain + ipfs + encryption
+
+*Blockchain-based secure storage and access scheme for electronic medical records in IPFS
+- Sun, Jin; Yao, Xiaomin; Wang, Shangping; Wu, Ying; 2020
+- attribute-based encryption system, blockchain technology, and the InterPlanetary File System (IPFS) storage platform.
+- The scheme provides good access control for the electronic medical records using attribute-based encryption technology so that people who are not related to the patient cannot see the private data of the patient without authorized
+
+
+*A Framework for Blockchain-based Smart Health System
+- Khubrani, Mousa Mohammed 2021
+- in this paper, the researcher proposed a theoretical blockchain-based framework via blockchain, ipfs and asymmetric encryption. DID NOT mention what type of blockchain or setup of ipfs.
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------
+
+POA as alternative
+
+
+*Decentralized secure storage of medical records using Blockchain and IPFS: A comparative analysis with future directions
+- Kumar, Shivansh;  Bharti, Aman Kumar; Amin, Ruhul; 2021
+- comparative study only of conceptual frameworks based on ipfs and blockchain
+- working with Consortium Blockchain requires more energy consumption, and to make it scalable it will take more resources and very few researchers have provided a mechanism that how the consortium Blockchain is made, how different entities are registering themselves in the Blockchain. It is one of the main issues that one can work to solve
+
+
+*Permission-Based Blockchain with Proof of Authority for Secured Healthcare Data Sharing
+- Al Asad, Nafiz; Elahi, Md. Tausif; Al Hasan, Abdullah; Yousuf, Mohammad Abu  Abdullah Al Hasan et al 2020
+- explains why POA is an excellent solution for medical records storage
+
+*Decentralized Patient Centric e-Health Record Management System using Blockchain and IPFS
+- Reen, Gaganjeet  2019
+- conceptual model only. no implementation
+- mentioned PoA as best choice for medical records but did not give out technical specifics
+- public ipfs, asymmetric encryption
+
+
+--------------------------------
+
+NOT USED
+
+
+
+
+Enhanced Decentralized Management of Patient-Driven Interoperability Based on Blockchain
+- Khan, Asad Ullah; Shahid, Affaf; Tariq, Fatima; Ghaffar, Abdul; Jamal, Abid; Abbas, Shahid; Javaid, Nadeem; (2019)
+- proposed POA and ipfs
+- no encryption of uploaded files
+- proposed poa but still relies on block mining w/c is why gas fees is reliant to file size
+
+
+Towards a Blockchain-based Secure Electronic Medical Record for Healthcare Applications
+- poa but no ipfs
+
+
+
+Distributed Off-Chain Storage of Patient Diagnostic Reports in Healthcare System Using IPFS and Blockchain
+- paper not available in scihub
+
+
+
+An Electronic Medical Record Management System based on Smart Contracts
+- Chen, Yeong-Sheng; Yang, Wei-Kai; Chen, Jie-Si  2019
+- public ipfs
+- ethereum pow
+- medical personnel are in control of patient data
+- attribute based encryption
+
+
+
+An Attribute-Based Distributed Data Sharing Scheme
+- Ehab Zaghloul, Tongtong Li and Jian Ren 2018
+- focused on IPFS and attribused based encryption
+- CAN BE A REFERENCE FOR IPFS related stuff
+- fine grained control on records
+- not user friendly because patient will run IPFS on command line LOL
+
+
+
+Secure Medical Record Sharing using Blockchain and Elliptic Curve Cryptography
+- Emrul Kais et al 2019
+- CHAPTER 2 CAN BE COPIED FOR REFERENCE LOL
+- Ethereum PoW + AE + IPFS (Public)
+- Access Control List - Smart Contract
+- was focused more on implementing Elliptic Curve Cryptography in encrypting/decrypting files
+
