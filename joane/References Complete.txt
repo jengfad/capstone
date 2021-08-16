@@ -1,14 +1,13 @@
 References:
 
 
-Cai J., Sun, W., Huang, J., Gamber, M., Wu, J., He G. (2020).
-Indirect Virus Transmission in Cluster of COVID-19 Cases, 1
+Cai, J., Sun, W., Huang, J., Gamber, M., Wu, J., & He, G. (2020). Indirect Virus Transmission in Cluster of COVID-19 Cases, Wenzhou, China, 2020. Emerging infectious diseases, 26(6), 1343–1345. https://doi.org/10.3201/eid2606.200412
 
 
 Badr. H., Du, H., Marshall, M., Dong,E., Squire, M., Gardner, L.  (2020).
-Association between mobility patterns and COVID-19 transmission in the USA: a mathematical modelling study,
-The Lancet Infectious Diseases,
-Volume 20, Issue 11, 2,7.
+Association between mobility patterns and COVID-19 transmission in the USA: a mathematical modelling study.
+The Lancet Infectious Diseases,Volume 20, Issue 11, 2,7.
+https://doi.org/10.1016/S1473-3099(20)30553-3.
 
 
 COVID-19 Dashboard, Republic of the Philippines, accessed 7 August 2021, <https://www.covid19.gov.ph/security/ecq>
@@ -20,7 +19,124 @@ Inter-Agency Task Force for the Management of Emerging Infectious Diseases (IATF
 
 Inquirer.net, Inquirer, accessed 7 August 2021, <https://newsinfo.inquirer.net/1247189/lanao-del-sur-village-chief-nabbed-for-selling-quarantine-pass-for-p20>
 
-Chaolin Huang, Yeming Wang, Xingwang Li, Lili Ren, Jianping Zhao, Yi Hu, Li Zhang, Guohui Fan, Jiuyang Xu, Xiaoying Gu, Zhenshun Cheng, Ting Yu, Jiaan Xia, Yuan Wei, Wenjuan Wu, Xuelei Xie, Wen Yin, Hui Li, Min Liu, Yan Xiao, Hong Gao, Li Guo, Jungang Xie, Guangfa Wang, Rongmeng Jiang, Zhancheng Gao, Qi Jin, Jianwei Wang, Bin Cao (2020).
-Clinical features of patients infected with 2019 novel coronavirus in Wuhan, China,
-The Lancet,
-Volume 395, Issue 10223, 1.
+Huang, C., Wang, Y., Li, X., Ren, L., Zhao, J., Hu, Y., Zhang, L., Fan, G., Xu, J., Gu, X., Cheng, Z., Yu, T., Xia, J., Wei, Y., Wu, W., Xie, X., Yin, W., Li, H., Liu, M., Xiao, Y., Gao, H., Guo, L., Xie, J., Wang, G., Jiang, R., Gao, Z., Jin, Q., Wang, J., Cao, B. (2020).
+Clinical features of patients infected with 2019 novel coronavirus in Wuhan, China.
+The Lancet, Volume 395, Issue 10223, 1.
+https://doi.org/10.1016/S0140-6736(20)30183-5
+
+Perlman, S.
+Another Decade, Another Coronavirus.
+N Engl J Med 2020. 
+DOI: 10.1056/NEJMe2001126
+
+Wu, Y. C., Chen, C. S., & Chan, Y. J. (2020). The outbreak of COVID-19: An overview. Journal of the Chinese Medical Association : JCMA, 83(3), 217–220. https://doi.org/10.1097/JCMA.0000000000000270
+
+Morawska L, Milton DK. It is time to address airborne transmission of covid-19. Clin Infect Dis 2020;. doi: 10.1093/cid/ciaa939 
+
+World Health Organisation. Scientific brief. Transmission of SARS-CoV-2: implications for infection prevention precautions. 2020. <https://www.who.int/news-room/commentaries/detail/transmissionof-sars-cov-2-implications-for-infection-prevention-precautions?>
+
+
+Asadi, S., Wexler, A.S., Cappa, C.D. et al. Aerosol emission and superemission during human speech increase with voice loudness. Sci Rep 9, 2348 (2019). 
+https://doi.org/10.1038/s41598-019-38808-z
+
+Han ZY, Weng WG, Huang QY. 2013 Characterizations of particle size
+distribution of the droplets exhaled by sneeze.
+J R Soc Interface 10: 20130560.
+http://dx.doi.org/10.1098/rsif.2013.0560
+
+Bootsma MCJ, Ferguson NM. The effect of public health measures on the 1918 influenza pandemic in U.S. cities. Proc Natl Acad Sci U S A 2007;104(18):7588–93. 
+https://doi.org/10.1073/pnas.0611071104
+
+Anderson RM, Heesterbeek H, Klinkenberg D, Hollingsworth TD. Comment How will countrybased mitigation measures influence the course of the COVID-19 epidemic ? 2020;2019(20):1– 4. 
+
+Imai, N., Gaythorpe, K., Abbott, S., Bhatia, S., van Elsland, S., Prem, K., Liu, Y., & Ferguson, N. M. (2020). Adoption and impact of non-pharmaceutical interventions for COVID-19. Wellcome open research, 5, 59. https://doi.org/10.12688/wellcomeopenres.15808.1
+
+Wu, Z., McGoogan, JM. Characteristics of and Important Lessons From the Coronavirus Disease 2019 (COVID-19) Outbreak in China: Summary of a Report of 72 314 Cases From the Chinese Center for Disease Control and Prevention. JAMA. 2020;323(13):1239–1242. 
+doi:10.1001/jama.2020.2648
+
+Zhang, Y., Jiang, B., Yuan, J., et al. : The impact of social distancing and epicenter lockdown on the covid-19 epidemic in mainland china: A data-driven seiqr model study. medRxiv. 2020. 10.1101/2020.03.04.20031187
+
+Lai, S., Ruktanonchai, N.W., Zhou, L., et al. : Effect of non-pharmaceutical interventions for containing the covid-19 outbreak: An observational and modelling study. medRxiv. 2020. 10.1101/2020.03.03.20029843
+
+
+Tkachenko, W. Puech, C. Destruel, O. Strauss, J. Gaudin and C. Guichard, "Two-Level QR Code for Private Message Sharing and Document Authentication," in IEEE Transactions on Information Forensics and Security, vol. 11, no. 3, pp. 571-583, March 2016, doi: 10.1109/TIFS.2015.2506546.
+
+Singh, S., “QR Code Analysis,” International Journal of Advanced Research in Computer Science and Software Engineering, vol. 6, no. 5, 2016.
+
+Uzun, V., "QR-Code Based Hospital Systems for Healthcare in Turkey," 2016 IEEE 40th Annual Computer Software and Applications Conference (COMPSAC), 2016, pp. 71-76, doi: 10.1109/COMPSAC.2016.173.
+
+Cho, J.; Seo, G.-W.; Lee, J.S.; Cho, H.K.; Kang, E.M.; Kim, J.; Chun, D.-I.; Yi, Y.; Won, S.H. The Usefulness of the QR Code in Orthotic Applications after Orthopedic Surgery. Healthcare 2021, 9, 298. https://doi.org/10.3390/healthcare9030298
+
+Nakamoto, I., Wang, S., Guo, Y., Zhuang, W.
+A QR Code–Based Contact Tracing Framework for Sustainable Containment of COVID-19: Evaluation of an Approach to Assist the Return to Normal Activity
+JMIR Mhealth Uhealth 2020;8(9):e22321
+URL: https://mhealth.jmir.org/2020/9/e22321
+DOI: 10.2196/22321
+
+Hur, J., & Chang, M. C. (2020). Usefulness of an Online Preliminary Questionnaire under the COVID-19 Pandemic. Journal of Medical Systems, 44(7).
+
+Palit, A.K.; Popovic, D. (2005). Computational Intelligence in Time Series Forecasting: Theory and Engineering Applications
+
+
+Chatfield, Chris (2000). Time-series Forecasting.
+CRC Press, 2000
+
+Krollner, Bjoern; Vanstone, Bruce; Finnie, Gavin; (2010). Financial time series forecasting with machine learning techniques: A survey
+
+Taieb, Souhaib Ben; Bontempi, Gianluca; Atiya, Amir F; Sorjamaa, Antti (2012). A review and comparison of strategies for multi-step ahead time series forecasting based on the nn5 forecasting competition.
+
+Cerqueira, Vitor; Torgo, Luis; Soares, Carlos (2019). Machine Learning vs Statistical Methods for Time Series Forecasting: Size Matters
+
+Weigend, Andreas .S. and Gershenfeld, Neil A. (1994) Time Series Prediction: forecasting the future and understanding the past
+
+
+Sorjamaa, Antti and Lendasse, Amaury (2006). Time series prediction using dirrec strategy
+
+Li, M. L. et al. Forecasting COVID-19 and analyzing the effect of government interventions. (2020)v Preprint at medRxiv 
+
+Adiga, A., Dubhashi, D., Lewis, B. et al. Mathematical Models for COVID-19 Pandemic: A Comparative Analysis. J Indian Inst Sci 100, 793–807 (2020). https://doi.org/10.1007/s41745-020-00200-6
+
+Tseng, Y., Shih, Y. (2020) Developing epidemic forecasting models to assist disease surveillance for influenza with electronic health records, International Journal of Computers and Applications, 42:6, 616-621, DOI: 10.1080/1206212X.2019.1633762
+
+
+Imai, C., Armstrong, B., Chalabi, Z., Mangtani, P., Hashizume, M.,
+Time series regression model for infectious disease and weather,
+Environmental Research, Volume 142, 2015.
+https://doi.org/10.1016/j.envres.2015.06.040.
+
+
+PAEDER, M., STROUD, J., & SONG, X. (2012). Time-series model to predict impact of H1N1 influenza on a children's hospital. Epidemiology and Infection, 140(5), 798-802. doi:10.1017/S0950268811001749
+
+
+Box, George E.P.; Jenkins, Gwilym; Reinsel, Gregory C. (1994). Time Series Analysis Forecasting and Control
+
+Siami-Namini, Sima; Tavakoli, Neda; Siami Namin, Akbar (2018). A Comparison of ARIMA and LSTM in Forecasting Time Series
+
+
+Zhang, Y., Yang, H., Cui, H. et al. Comparison of the Ability of ARIMA, WNN and SVM Models for Drought Forecasting in the Sanjiang Plain, China. Nat Resour Res 29, 1447–1464 (2020). https://doi.org/10.1007/s11053-019-09512-6
+
+Tandon, H., Ranjan, P., Chakraborty, T., Suhag, V., Coronavirus (COVID-19):
+ARIMA based time-series analysis to forecast near future,2020,arXiv2004.07859
+
+
+Hyndman, R.J., & Athanasopoulos, G. (2018) Forecasting: principles and practice, 2nd edition, OTexts: Melbourne, Australia. OTexts.com/fpp2. Accessed on Aug 7, 2020
+https://otexts.com/fpp2/arima.html
+
+PANKRATZ, A. (1983) Forecasting with univariate Box–Jenkins models: concepts and cases,
+New York: John Wiley & Sons.
+Accessed on Aug 7, 2020
+https://robjhyndman.com/papers/BoxJenkins.pdf
+
+PhilAtlas, accessed 7 August 2021, 
+<https://www.philatlas.com/luzon/r04a/cavite/bacoor/molino-iv.html>
+
+
+Philippine Statistics Authority, Republic of the Philippines, accessed 7 August 2021,
+<https://psa.gov.ph/content/highlights-household-population-number-households-and-average-household-size-philippines>
+
+
+
+
+
+
+
