@@ -1,9 +1,6 @@
 Definition of Terms:
 
 
-Autocorrelation
-Correlation
-residuals
-Partial Autocorrelation function
+
 
 
