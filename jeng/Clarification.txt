@@ -1,0 +1,19 @@
+PANEL FEEDBACK
+
+Capstone Direction
+- Change application from Ospital ng Makati to Generic Application of Vaccine Certificates.
+- Should be a Proof-of-Concept implementation
+
+Statement of the Problem
+- Too broad should be more specific to file storage and blockchain security for Covid-19 Vaccination Certificates.
+
+Objectives
+- Remove Objective #1 (about decentralized storage)
+- Focus on PoA Blockchain Consensus, Merkle DAG aspect of IPFS and File Encryption/Decryption Algorithm
+- Add security validation as objective
+
+
+
+
+
+
