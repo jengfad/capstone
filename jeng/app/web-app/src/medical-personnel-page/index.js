@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PatientList from "../patient-list";
+import ViewCertificate from "../view-certificate";
 
 const MedicalPersonnelPage = () => {
     const [allPatients, setAllPatients] = useState([]);
@@ -16,6 +17,7 @@ const MedicalPersonnelPage = () => {
     return (
         <div>
             {allPatients.length > 0 && <PatientList allPatients={allPatients} />}
+            <ViewCertificate />
         </div>
     );
 }

@@ -5,7 +5,7 @@ import Header
 const App = () => {
     return (
         <Router>
-        <div className="container">
+        <div>
             <Header />
             <MedicalPersonnelPage />
             <Switch>
