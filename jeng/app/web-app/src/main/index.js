@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MedicalPersonnelPage from '../medical-personnel-page';
 import Header
     from '../header';
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
         <Router>
         <div className="container">
             <Header />
+            <MedicalPersonnelPage />
             <Switch>
             </Switch>
         </div>

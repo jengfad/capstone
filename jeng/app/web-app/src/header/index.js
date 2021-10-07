@@ -8,10 +8,10 @@ library.add(faShieldVirus);
 const Header = () => {
     return (
         <header className="d-flex justify-content-center bg-primary p-3">
-            <div class="d-flex align-items-center logo">
+            <div className="d-flex align-items-center logo">
                 <FontAwesomeIcon icon="shield-virus" />
             </div>
-            <div class="d-flex align-items-center">
+            <div className="d-flex align-items-center">
                 <h1 className="title">CoviVaxx</h1>
             </div>
             
