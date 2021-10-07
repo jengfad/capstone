@@ -1,0 +1,75 @@
+=============== Oct 4, 2021 (CST) ===============
+21:56:50.922081 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:56:50.930966 db@open opening
+21:56:50.932484 version@stat F·[] S·0B[] Sc·[]
+21:56:50.935481 db@janitor F·2 G·0
+21:56:50.935481 db@open done T·4.5159ms
+21:56:50.963001 db@close closing
+21:56:50.963524 db@close done T·522.3µs
+=============== Oct 4, 2021 (CST) ===============
+22:14:48.026549 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:14:48.027638 version@stat F·[] S·0B[] Sc·[]
+22:14:48.027638 db@open opening
+22:14:48.027638 journal@recovery F·1
+22:14:48.036407 journal@recovery recovering @1
+22:14:48.042587 memdb@flush created L0@2 N·628 S·51KiB "\x02d\xfc..\x19Ba,v436":"\xfe\x88\xcf..H\xef\xcc,v366"
+22:14:48.051823 version@stat F·[1] S·51KiB[51KiB] Sc·[0.25]
+22:14:48.065402 db@janitor F·3 G·0
+22:14:48.065402 db@open done T·37.7638ms
+22:15:25.980257 db@close closing
+22:15:25.980799 db@close done T·541.4µs
+=============== Oct 4, 2021 (CST) ===============
+22:26:05.071571 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:26:05.072082 version@stat F·[1] S·51KiB[51KiB] Sc·[0.25]
+22:26:05.072082 db@open opening
+22:26:05.072741 journal@recovery F·1
+22:26:05.078670 journal@recovery recovering @3
+22:26:05.084050 memdb@flush created L0@5 N·270 S·11KiB "Dat..ion,v630":"unc..own,v896"
+22:26:05.090053 version@stat F·[2] S·62KiB[62KiB] Sc·[0.50]
+22:26:05.103016 db@janitor F·4 G·0
+22:26:05.103016 db@open done T·30.9338ms
+=============== Oct 4, 2021 (CST) ===============
+22:31:52.929208 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:31:52.930209 version@stat F·[2] S·62KiB[62KiB] Sc·[0.50]
+22:31:52.930209 db@open opening
+22:31:52.930209 journal@recovery F·1
+22:31:52.938087 journal@recovery recovering @6
+22:31:52.946921 memdb@flush created L0@8 N·1 S·199B "unc..own,v901":"unc..own,v901"
+22:31:52.954919 version@stat F·[3] S·62KiB[62KiB] Sc·[0.75]
+22:31:52.970652 db@janitor F·5 G·0
+22:31:52.970652 db@open done T·40.4434ms
+22:35:10.994287 db@close closing
+22:35:10.995249 db@close done T·962µs
+=============== Oct 4, 2021 (CST) ===============
+22:42:46.287404 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:42:46.287965 version@stat F·[3] S·62KiB[62KiB] Sc·[0.75]
+22:42:46.287965 db@open opening
+22:42:46.288593 journal@recovery F·1
+22:42:46.303993 journal@recovery recovering @9
+22:42:46.315132 memdb@flush created L0@11 N·4 S·301B "Sna..tor,v904":"unc..own,v903"
+22:42:46.343566 version@stat F·[4] S·62KiB[62KiB] Sc·[1.00]
+22:42:46.363945 db@janitor F·6 G·0
+22:42:46.363945 db@open done T·75.9802ms
+22:42:46.363945 table@compaction L0·4 -> L1·0 S·62KiB Q·907
+22:42:46.377330 table@build created L1@14 N·893 S·62KiB "\x02d\xfc..\x19Ba,v436":"\xfe\x88\xcf..H\xef\xcc,v366"
+22:42:46.377330 version@stat F·[0 1] S·62KiB[0B 62KiB] Sc·[0.00 0.00]
+22:42:46.382058 table@compaction committed F-3 S-559B Ke·0 D·10 T·18.1127ms
+22:42:46.383467 table@remove removed @8
+22:42:46.385324 table@remove removed @5
+22:42:46.386587 table@remove removed @2
+22:58:24.907368 db@close closing
+22:58:24.914234 db@close done T·6.8659ms
+=============== Oct 4, 2021 (CST) ===============
+23:24:15.597406 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:24:15.598408 version@stat F·[0 1] S·62KiB[0B 62KiB] Sc·[0.00 0.00]
+23:24:15.598408 db@open opening
+23:24:15.598408 journal@recovery F·1
+23:24:15.605408 journal@recovery recovering @12
+23:24:15.609248 memdb@flush created L0@15 N·4 S·301B "Sna..tor,v909":"unc..own,v908"
+23:24:15.615914 version@stat F·[1 1] S·62KiB[301B 62KiB] Sc·[0.25 0.00]
+23:24:15.629895 db@janitor F·5 G·1
+23:24:15.629895 db@janitor removing table-11
+23:24:15.629895 db@open done T·31.4862ms
+=============== Oct 5, 2021 (CST) ===============
+00:20:06.997356 db@close closing
+00:20:06.998747 db@close done T·1.391ms

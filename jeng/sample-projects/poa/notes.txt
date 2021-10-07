@@ -1,0 +1,72 @@
+Creds
+
+node1
+0xa4341b23391f53612FeD779E0A6368df48ea3D4B
+password123
+
+node2
+0x3Ed91Ca2832be366d13aff66F86B926Db6a7616B
+password123
+
+node3
+0xe825Ac9eA8b083b4226f361849d143d42B3d5b99
+password123
+
+--network=1515
+
+
+
+---------------
+
+node1
+geth --nousb --datadir=$PWD --syncmode "full" --port 3030 --miner.gasprice 0 --miner.gastarget 470000000000 --http --http.addr "localhost" --http.port 8545 --http.api admin,eth,miner,net,txpool,personal,web3 --mine --allow-insecure-unlock --unlock "0xa4341b23391f53612FeD779E0A6368df48ea3D4B" --password password
+
+INFO [10-04|22:09:04.020] Starting peer-to-peer node               instance=Geth/v1.10.8-stable-26675454/windows-amd64/go1.16.4
+INFO [10-04|22:09:04.077] New local node record                    seq=6 id=9d15ff2ab51bdfb2 ip=127.0.0.1 udp=3030 tcp=3030
+INFO [10-04|22:09:04.093] Started P2P networking                   self=enode://0b8cef07647c32be7c6472365ee610cba3f1d4fd25e709a51532719887d0062148aaf7666fe8a38106cb90d8b6ee70aa443d1e5537f066abcc432f551943059d@127.0.0.1:3030
+
+---------------
+
+node2
+geth --nousb --datadir=$PWD --syncmode "full" --port 3031 --miner.gasprice 0 --miner.gastarget 470000000000 --http --http.addr "localhost" --http.port 8546 --http.api admin,eth,miner,net,txpool,personal,web3 --mine --allow-insecure-unlock --unlock "0x3Ed91Ca2832be366d13aff66F86B926Db6a7616B" --password password --ipcdisable
+
+INFO [10-04|22:14:13.142] Starting peer-to-peer node               instance=Geth/v1.10.8-stable-26675454/windows-amd64/go1.16.4
+INFO [10-04|22:14:13.184] New local node record                    seq=1 id=ebd7d11354894e0e ip=127.0.0.1 udp=3031 tcp=3031
+INFO [10-04|22:14:13.196] Started P2P networking                   self=enode://9e2a912c7f1e59f3af5bb24a2417e97d3f9dcdabfb376d2355a23932d1c2a71ed2980eda0e1ed7075e411f1eca5564b3e7afe9e19349988d9a5c6d623f69baee@127.0.0.1:3031
+
+---------------
+
+node3
+geth --nousb --datadir=$PWD --syncmode "full" --port 3032 --miner.gasprice 0 --miner.gastarget 470000000000 --http --http.addr "localhost" --http.port 8547 --http.api admin,eth,miner,net,txpool,personal,web3 --mine --allow-insecure-unlock --unlock "0xe825Ac9eA8b083b4226f361849d143d42B3d5b99" --password password --ipcdisable
+
+INFO [10-04|22:14:48.387] Starting peer-to-peer node               instance=Geth/v1.10.8-stable-26675454/windows-amd64/go1.16.4
+INFO [10-04|22:14:48.438] New local node record                    seq=1 id=6e71c004710b7dc0 ip=127.0.0.1 udp=3032 tcp=3032
+INFO [10-04|22:14:48.455] Started P2P networking                   self=enode://62a964eb5c1f003d10583ed95c5782ee014ea1160657915b5a74c76fd26bb1c4e8c5b9ba58715fc5dadf5707bd612d69e189d4ce310ce257d9e89032051c2be0@127.0.0.1:3032
+
+
+https://medium.com/@thusharaj/if-ipc-is-not-disabled-in-second-node-you-may-get-below-error-89df2c67ff47
+
+
+
+geth console --ipcdisable --dev
+
+
+{
+  blockHash: "0x3815ff9be9416fbc19efd968011c054f8dadb3fb2e194f9bcf35849e35ba217b",
+  blockNumber: 2,
+  contractAddress: "0xcb1f1e41bb2c70283b54c158d7b3d7ae8f070a3f",
+  cumulativeGasUsed: 344512,
+  effectiveGasPrice: 0,
+  from: "0xa4341b23391f53612fed779e0a6368df48ea3d4b",
+  gasUsed: 344512,
+  logs: [],
+  logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  status: "0x1",
+  to: null,
+  transactionHash: "0xd218e21ebfc347b2f2fd5a4a59c6460985cd601df74581a29b8629af3e518b0c",
+  transactionIndex: 0,
+  type: "0x0"
+}
+
+
+geth attach http://localhost:8545
