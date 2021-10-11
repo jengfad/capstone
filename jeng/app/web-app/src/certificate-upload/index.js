@@ -1,6 +1,8 @@
 const CertificateUpload = () => {
     return (
-        
+        <div>
+            
+        </div>
     );
 }
  

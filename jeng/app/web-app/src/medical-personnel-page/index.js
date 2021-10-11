@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PatientList from "../patient-list";
-import ViewCertificate from "../view-certificate";
+import CertificateView from "../certificate-view";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const MedicalPersonnelPage = () => {
     const [allPatients, setAllPatients] = useState([]);
@@ -16,8 +17,16 @@ const MedicalPersonnelPage = () => {
     
     return (
         <div>
-            {allPatients.length > 0 && <PatientList allPatients={allPatients} />}
-            <ViewCertificate />
+            <Router>
+                <Switch>
+                <Route path="/med-admin/view-certificate/:certHash">
+                    <CertificateView />
+                </Route>
+                <Route path="/med-admin/">
+                    <PatientList allPatients={allPatients} />
+                </Route>
+                </Switch>
+            </Router>
         </div>
     );
 }

@@ -12,10 +12,8 @@ const Header = () => {
                 <FontAwesomeIcon icon="shield-virus" />
             </div>
             <div className="d-flex align-items-center">
-                <h4 className="title">CoviVaxx</h4>
+                <h4 className="title">VaxMon</h4>
             </div>
-            
-            
         </header>
     )
 }
