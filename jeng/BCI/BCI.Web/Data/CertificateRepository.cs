@@ -45,7 +45,6 @@ namespace BCI.Web.Data
             using (var db = new SqlConnection(_bciConnectionString))
             {
                 return await db.QueryAsync<CertificateModel>(query, null, commandType: CommandType.Text).ConfigureAwait(false);
-
             }
         }
     }
