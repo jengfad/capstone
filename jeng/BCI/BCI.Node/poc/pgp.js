@@ -21,11 +21,6 @@ async function encrypt(publicKeyArmored) {
   });
   
   fs.writeFileSync('encrypted.txt', encrypted.data);
-
-  // let readStream = encrypted.data;
-  // let writeStream = fs.createWriteStream("encrypted.txt", { flags: "a" });
-  // readStream.pipe(writeStream);
-  // readStream.on("end", () => console.log("done!"));
 }
 
 async function decrypt(privateKeyArmored, passphrase) {
@@ -41,11 +36,6 @@ async function decrypt(privateKeyArmored, passphrase) {
   // from base64 to binary
   let buff = Buffer.from(decrypted.data, 'base64');
   fs.writeFileSync('decrypted.pdf', buff);
-
-  // let readStream = decrypted.data;
-  // let writeStream = fs.createWriteStream("decrypted.json", { flags: "a" });
-  // readStream.pipe(writeStream);
-  // readStream.on("end", () => console.log("done!"));
 }
 
 openpgp.config.allow_unauthenticated_stream = true;

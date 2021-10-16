@@ -1,0 +1,25 @@
+{
+  "name": "bci-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./server/index.js localhost 7777"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "msnodesqlv8": "^2.4.0",
+    "mssql": "^7.2.1",
+    "multer": "^1.4.3",
+    "openpgp": "^4.10.10",
+    "sequelize": "^6.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
