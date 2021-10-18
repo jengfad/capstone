@@ -24,13 +24,4 @@ module.exports = {
     //     const result = await request.query(query);
     //     return result.recordset;
     // },
-
-    // addPatient: async (userModel, publicKey, ) => {
-    //     await sql.connect(config);
-    //     const request = new sql.Request();
-    //     request.input('firstName', sql.VarChar, model.firstName);
-    //     request.input('lastName', sql.VarChar, model.lastName);
-    //     request.input('email', sql.VarChar, model.email);
-    //     request.input('publicKey', sql.VarChar, model.firstName);
-    // }
 }

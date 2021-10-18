@@ -52,7 +52,7 @@ module.exports = {
         fs.writeFileSync('encrypted.txt', encrypted.data);
     },
 
-    decryptFile: async (privateKeyValue, passphrase) => {
+    decryptFile: async (privateKeyValue) => {
         const privateKey = (await openpgp.key.readArmored([privateKeyValue])).keys[0];
         await privateKey.decrypt(passphrase);
 

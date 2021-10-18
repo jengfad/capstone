@@ -31,6 +31,16 @@ module.exports = {
             ,@EncryptedPrivateKey
             ,@HashedPassword)`;
         
+        await request.query(query.trim());
+    },
+
+    getUserKeys: async (userId) => {
+        const request = await dbUtil.createDbRequest();
+        console.log('userId', userId);
+        request.input('UserId', sql.Int, userId);
+        const query = `SELECT PublicKey, EncryptedPrivateKey FROM [dbo].[User] WHERE ID = @UserId`;
         const result = await request.query(query.trim());
+        const keys = result.recordset[0];
+        return keys;
     }
 }

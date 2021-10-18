@@ -3,6 +3,7 @@ const fileUpload = require('express-fileupload');
 const pgpService = require("../services/pgp-service");
 const ipfsService = require("../services/ipfs-service");
 const userService = require("../services/user-service");
+const fs = require("fs");
 const PORT = process.env.PORT || 7777;
 let app = express();
 
@@ -31,19 +32,24 @@ app.get("/generate-key", async (req, res) => {
 
 app.post('/upload', async (req, res, next) => {
   let file = req.files.file.data;
-  const keys = pgpService.getStaticKeys();
-  await pgpService.encryptFile(file, keys.publicKey);
+  const userId = req.body.userId;
+  const keys = await userService.getUserKeys(userId);
+  await pgpService.encryptFile(file, keys.PublicKey);
   res.send("success");
 })
 
 app.get('/download', async (req, res, next) => {
-  const keys = pgpService.getStaticKeys();
-  await pgpService.decryptFile(keys.privateKey, "qwerty");
+  // const keys = await userService.getUserKeys("1");
+  // await pgpService.decryptFile(keys.EncryptedPrivateKey);
+  const cid = 'QmSghmS1Ftah8CQYpv9YqtWjs1ttDSX7XyQzbYRaTdGiCN';
+  const file = await ipfsService.getFile(cid);
+  fs.writeFileSync('office-from-ipfs.jpg', file);
   res.send("success");
 })
 
 app.get('/add-file', async (req, res, next) => {
-  const addedFile = await ipfsService.addFile();
+  const file = fs.readFileSync("office.jpg");
+  const addedFile = await ipfsService.addFile(file);
   res.send("success");
 })
 
