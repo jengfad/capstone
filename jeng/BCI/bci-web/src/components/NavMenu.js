@@ -37,6 +37,9 @@ const NavMenu = () => {
                     <NavItem>
                         <NavLink tag={Link} className="text-dark" to="/upload-cert">Upload Certificate</NavLink>
                     </NavItem>
+                    <NavItem>
+                        <NavLink tag={Link} className="text-dark" to="/register-patient">Register Patient</NavLink>
+                    </NavItem>
                     </ul>
                 </Collapse>
                 </Container>

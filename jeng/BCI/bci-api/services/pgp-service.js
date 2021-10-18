@@ -1,7 +1,23 @@
 const openpgp = require("openpgp");
 const fs = require("fs");
 
+const passphrase = "passphrase123";
+const curve = "ed25519";
+
 module.exports = {
+    generateKeyPair: async (name, email) => {
+        const keys = await openpgp.generateKey({
+            userIds: [{ name: name, email: email }],
+            curve: curve,
+            passphrase: passphrase,
+        });
+
+        return {
+            privateKey: keys.privateKeyArmored,
+            publicKey: keys.publicKeyArmored
+        }
+    },
+
     generateStaticKeyPair: async () => {
         const keys = await openpgp.generateKey({
             userIds: [{ name: "person", email: "person@somebody.com" }],
@@ -11,7 +27,6 @@ module.exports = {
         
         fs.writeFileSync('private-key.txt', keys.privateKeyArmored);
         fs.writeFileSync('public-key.txt', keys.publicKeyArmored);
-
         
         const privateKey = fs.readFileSync('private-key.txt');
         console.log(privateKey.toString());
