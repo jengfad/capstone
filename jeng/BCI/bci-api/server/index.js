@@ -41,10 +41,12 @@ app.post('/upload', async (req, res, next) => {
 app.get('/download', async (req, res, next) => {
   // const keys = await userService.getUserKeys("1");
   // await pgpService.decryptFile(keys.EncryptedPrivateKey);
-  const cid = 'QmSghmS1Ftah8CQYpv9YqtWjs1ttDSX7XyQzbYRaTdGiCN';
-  const file = await ipfsService.getFile(cid);
-  fs.writeFileSync('office-from-ipfs.jpg', file);
-  res.send("success");
+  // const cid = 'QmSghmS1Ftah8CQYpv9YqtWjs1ttDSX7XyQzbYRaTdGiCN';
+  // const file = await ipfsService.getFile(cid);
+  // fs.writeFileSync('office-from-ipfs.jpg', file);
+  // res.send("success");
+
+  await ipfsService.getFile();
 })
 
 app.get('/add-file', async (req, res, next) => {
