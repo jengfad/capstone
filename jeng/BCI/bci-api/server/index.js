@@ -35,18 +35,20 @@ app.post('/upload', async (req, res, next) => {
   const userId = req.body.userId;
   const keys = await userService.getUserKeys(userId);
   await pgpService.encryptFile(file, keys.PublicKey);
+  const encryptedFile = fs.readFileSync("encrypted.txt");
+  const ipfsFile = await ipfsService.addFile(encryptedFile);
+  console.log('cid v1', ipfsFile.cid.toV1());
   res.send("success");
 })
 
 app.get('/download', async (req, res, next) => {
-  // const keys = await userService.getUserKeys("1");
-  // await pgpService.decryptFile(keys.EncryptedPrivateKey);
-  // const cid = 'QmSghmS1Ftah8CQYpv9YqtWjs1ttDSX7XyQzbYRaTdGiCN';
-  // const file = await ipfsService.getFile(cid);
-  // fs.writeFileSync('office-from-ipfs.jpg', file);
-  // res.send("success");
-
-  await ipfsService.getFile();
+  const userId = req.body.userId;
+  const cid = req.body.cid;
+  // const cid = 'bafybeibr5fo56qf665aa5qkep2m5czqxctowb5g7ycm6l2xjrztig5qiw4';
+  const file = await ipfsService.getFile(cid);
+  const keys = await userService.getUserKeys(userId);
+  await pgpService.decryptFile(file, keys.EncryptedPrivateKey);
+  res.send("success");
 })
 
 app.get('/add-file', async (req, res, next) => {
