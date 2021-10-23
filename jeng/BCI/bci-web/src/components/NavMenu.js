@@ -22,26 +22,31 @@ const NavMenu = () => {
             <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
                 <Container>
                     <NavbarBrand tag={Link} to="/">
-                        <FontAwesomeIcon className="mr-2" icon="shield-virus" />
-                        VaxMon
+                        <div className="d-flex align-items-center">
+                            <FontAwesomeIcon icon="shield-virus" />
+                            <div className="title-label">VaxMon</div>
+                        </div>
                     </NavbarBrand>
-                <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-                <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
-                    <ul className="navbar-nav flex-grow">
-                    <NavItem>
-                        <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink tag={Link} className="text-dark" to="/view-cert">View Certificate</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink tag={Link} className="text-dark" to="/upload-cert">Upload Certificate</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink tag={Link} className="text-dark" to="/register-patient">Register Patient</NavLink>
-                    </NavItem>
-                    </ul>
-                </Collapse>
+                    <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+                    <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
+                        <ul className="navbar-nav flex-grow">
+                        <NavItem>
+                            <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} className="text-dark" to="/view-cert">View Certificate</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} className="text-dark" to="/upload-cert">Upload Certificate</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} className="text-dark" to="/register-patient">Register Patient</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} className="text-dark" to="/view-cert">View Certificate</NavLink>
+                        </NavItem>
+                        </ul>
+                    </Collapse>
                 </Container>
             </Navbar>
         </header>

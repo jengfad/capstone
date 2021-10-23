@@ -33,8 +33,9 @@ const RegisterPatient = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={submitRecord}>
+        <div className="my-4">
+            <h2>Register</h2>
+            <form onSubmit={submitRecord} className="w-50 mt-4">
                 <div class="form-group">
                     <label>First Name</label>
                     <input type="text" class="form-control  mb-4"
@@ -55,7 +56,7 @@ const RegisterPatient = () => {
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="text" class="form-control  mb-4"
+                    <input type="password" class="form-control  mb-4"
                         name="password" value={password}
                         onChange={e => onInputChange(e)}/>
                 </div>

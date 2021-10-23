@@ -61,8 +61,8 @@ module.exports = {
             privateKeys: [privateKey],
         });
 
+        return decrypted.data;
         // from base64 to binary
-        let buff = Buffer.from(decrypted.data, 'base64');
-        fs.writeFileSync('decrypted.pdf', buff);
+        return Buffer.from(decrypted.data, 'base64');
     }
 }

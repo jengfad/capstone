@@ -6,6 +6,7 @@ import CertificateList from './components/CertificateList';
 import './custom.css'
 import CertificateUpload from './components/CertificateUpload';
 import RegisterPatient from './components/RegisterPatient';
+import CertificateView from './components/CertificateView';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -15,8 +16,9 @@ export default class App extends Component {
       <Layout>
         <Route exact path='/' component={Home} />
         <Route path='/upload-cert' component={CertificateUpload} />
-        <Route path='/view-cert' component={CertificateList} />
+        <Route path='/cert-list' component={CertificateList} />
         <Route path='/register-patient' component={RegisterPatient} />
+        <Route path='/view-cert' component={CertificateView} />
       </Layout>
     );
   }

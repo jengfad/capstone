@@ -37,18 +37,21 @@ app.post('/upload', async (req, res, next) => {
   await pgpService.encryptFile(file, keys.PublicKey);
   const encryptedFile = fs.readFileSync("encrypted.txt");
   const ipfsFile = await ipfsService.addFile(encryptedFile);
-  console.log('cid v1', ipfsFile.cid.toV1());
-  res.send("success");
+  const cid = ipfsFile.cid.toV1();
+  console.log('uploaded file cid', cid);
+  res.send(cid);
 })
 
-app.get('/download', async (req, res, next) => {
+app.post('/api/view-cert', async (req, res, next) => {
   const userId = req.body.userId;
   const cid = req.body.cid;
-  // const cid = 'bafybeibr5fo56qf665aa5qkep2m5czqxctowb5g7ycm6l2xjrztig5qiw4';
-  const file = await ipfsService.getFile(cid);
+  const encryptedFile = await ipfsService.getFile(cid);
   const keys = await userService.getUserKeys(userId);
-  await pgpService.decryptFile(file, keys.EncryptedPrivateKey);
-  res.send("success");
+  const decryptedFileBase64 = await pgpService.decryptFile(encryptedFile, keys.EncryptedPrivateKey);
+  const data = {
+    base64: decryptedFileBase64.toString()
+  }
+  res.send(JSON.stringify(data));
 })
 
 app.get('/add-file', async (req, res, next) => {

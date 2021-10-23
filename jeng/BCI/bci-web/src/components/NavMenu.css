@@ -4,6 +4,10 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.title-label {
+  margin-left: 10px;
+}
+
 html {
   font-size: 14px;
 }

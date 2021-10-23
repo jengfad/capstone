@@ -40,7 +40,7 @@ const CertificateUpload = () => {
 
     return (
         <form onSubmit={handleUploadImage}>
-            <div class="form-group">
+            <div class="form-group w-50">
                 <label>User Id</label>
                 <input type="text" class="form-control mb-4"
                     name="userId" value={userId}
@@ -51,7 +51,7 @@ const CertificateUpload = () => {
             </div>
             <br />
             <div>
-                <button>Upload</button>
+                <button className="btn btn-primary">Upload</button>
             </div>
         </form>
     );
