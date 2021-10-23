@@ -14,12 +14,18 @@ const stream2buffer = (stream) => {
       stream.on("end", () => resolve(Buffer.concat(_buf)));
       stream.on("error", (err) => reject(err));
   });
-} 
+}
+
+const getCid = (ipfsFile) => {
+  const cid = ipfsFile.cid.toV1().toString();
+  return cid.replace("CID", "").replace("(").replace(")");
+}
 
 module.exports = {
   addFile: async (file) => {
     const result = await client.add(file);
-    return result;
+    const cid = getCid(result);
+    return cid;
   },
 
   getFile: async (cid) => {

@@ -1,10 +1,17 @@
 const openpgp = require("openpgp");
 const fs = require("fs");
+const crypto = require('crypto');
 
 const passphrase = "passphrase123";
 const curve = "ed25519";
 
 module.exports = {
+    getFileHash: (file) => {
+        const hashSum = crypto.createHash('sha256');
+        hashSum.update(file);
+        return hashSum.digest('hex');
+    },
+
     generateKeyPair: async (name, email) => {
         const keys = await openpgp.generateKey({
             userIds: [{ name: name, email: email }],

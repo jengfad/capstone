@@ -3,6 +3,7 @@ const fileUpload = require('express-fileupload');
 const pgpService = require("../services/pgp-service");
 const ipfsService = require("../services/ipfs-service");
 const userService = require("../services/user-service");
+const certService = require("../services/cert-service");
 const fs = require("fs");
 const PORT = process.env.PORT || 7777;
 let app = express();
@@ -36,9 +37,10 @@ app.post('/upload', async (req, res, next) => {
   const keys = await userService.getUserKeys(userId);
   await pgpService.encryptFile(file, keys.PublicKey);
   const encryptedFile = fs.readFileSync("encrypted.txt");
-  const ipfsFile = await ipfsService.addFile(encryptedFile);
-  const cid = ipfsFile.cid.toV1();
-  console.log('uploaded file cid', cid);
+  // const cid = await ipfsService.addFile(encryptedFile); // actual
+  const cid = "bafybeiegpugl5bzoo3ybaj4vmlqltzvrw4tsuf6mnwkvllu7j5zo6k3jzu"; // debug
+  const fileHash = pgpService.getFileHash(file);
+  await certService.insertCert(userId, fileHash, cid);
   res.send(cid);
 })
 
