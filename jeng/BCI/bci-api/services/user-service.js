@@ -34,9 +34,20 @@ module.exports = {
         await request.query(query.trim());
     },
 
+    searchUsers: async (searchText) => {
+        const request = await dbUtil.createDbRequest();
+        console.log('searchText', searchText);
+        request.input('SearchText', sql.NVarChar, searchText);
+        const query = `SELECT ID, LastName, FirstName, Email FROM [dbo].[User] 
+            WHERE FirstName LIKE '%' + @SearchText + '%'
+            OR LastName LIKE '%' + @SearchText + '%'
+            OR Email LIKE '%' + @SearchText + '%'`;
+        const result = await request.query(query.trim());
+        return result.recordset;
+    },
+
     getUserKeys: async (userId) => {
         const request = await dbUtil.createDbRequest();
-        console.log('userId', userId);
         request.input('UserId', sql.Int, userId);
         const query = `SELECT PublicKey, EncryptedPrivateKey FROM [dbo].[User] WHERE ID = @UserId`;
         const result = await request.query(query.trim());

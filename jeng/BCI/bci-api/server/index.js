@@ -44,6 +44,13 @@ app.post('/upload', async (req, res, next) => {
   res.send(cid);
 })
 
+app.post('/api/search-users', async (req, res, next) => {
+  console.log(req);
+  const searchText = req.body.searchText;
+  const users = await userService.searchUsers(searchText);
+  res.send(users);
+})
+
 app.post('/api/view-cert', async (req, res, next) => {
   const userId = req.body.userId;
   const cid = req.body.cid;
