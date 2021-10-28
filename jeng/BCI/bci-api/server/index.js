@@ -4,6 +4,7 @@ const pgpService = require("../services/pgp-service");
 const ipfsService = require("../services/ipfs-service");
 const userService = require("../services/user-service");
 const certService = require("../services/cert-service");
+const pdfService = require("../services/pdf-service");
 const fs = require("fs");
 const PORT = process.env.PORT || 7777;
 let app = express();
@@ -73,3 +74,8 @@ app.post('/register-patient', async (req, res, next) => {
   const result = await userService.registerPatient(req.body);
   res.send("success");
 })
+
+app.get('/api/generate-pdf', async (req, res, next) => {
+  await pdfService.generatePdf();
+  res.send("success");
+});
