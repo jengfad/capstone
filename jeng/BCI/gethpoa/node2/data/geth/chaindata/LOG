@@ -1,0 +1,32 @@
+=============== Nov 8, 2021 (+08) ===============
+18:54:01.237024 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+18:54:01.249196 db@open opening
+18:54:01.250309 version@stat F·[] S·0B[] Sc·[]
+18:54:01.254892 db@janitor F·2 G·0
+18:54:01.254892 db@open done T·5.6967ms
+18:54:01.260536 db@close closing
+18:54:01.260536 db@close done T·0s
+=============== Nov 8, 2021 (+08) ===============
+19:06:33.337506 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:06:33.338550 version@stat F·[] S·0B[] Sc·[]
+19:06:33.338550 db@open opening
+19:06:33.338550 journal@recovery F·1
+19:06:33.340668 journal@recovery recovering @1
+19:06:33.349741 memdb@flush created L0@2 N·626 S·51KiB "\x02d\xfc..\x19Ba,v432":"\xfe\x88\xcf..H\xef\xcc,v365"
+19:06:33.351903 version@stat F·[1] S·51KiB[51KiB] Sc·[0.25]
+19:06:33.357710 db@janitor F·3 G·0
+19:06:33.357710 db@open done T·19.16ms
+20:09:23.181352 db@close closing
+20:09:23.181352 db@close done T·0s
+=============== Nov 8, 2021 (+08) ===============
+20:10:36.342437 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+20:10:36.342957 version@stat F·[1] S·51KiB[51KiB] Sc·[0.25]
+20:10:36.342957 db@open opening
+20:10:36.342957 journal@recovery F·1
+20:10:36.344621 journal@recovery recovering @3
+20:10:36.375839 memdb@flush created L0@5 N·17758 S·905KiB "Dat..ion,v628":"unc..own,v634"
+20:10:36.377841 version@stat F·[2] S·957KiB[957KiB] Sc·[0.50]
+20:10:36.398522 db@janitor F·4 G·0
+20:10:36.398522 db@open done T·55.5649ms
+20:43:25.540462 db@close closing
+20:43:25.541002 db@close done T·540µs

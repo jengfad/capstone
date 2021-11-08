@@ -1,0 +1,17 @@
+node1: 0x5914AB4D448AfAeA82d0fA743Bc7935c9773D931
+passcode: password123
+
+node2: 0x8d3f87F62DE3DDaD949DB4C9a095afC24D0b8f4C
+passcode: password123
+
+bootnode enode
+enode://c1448fca890fca855d782d59541a913c5dab06d575ee63d48a96e2565ff5d12b8cdfa86dad48c11551b9801fae9cc8e3d75656e94f223833e817cb2719786394@127.0.0.1:0?discport=30301
+
+
+
+node1
+geth --networkid 14333 --datadir "./data" --bootnodes enode://c1448fca890fca855d782d59541a913c5dab06d575ee63d48a96e2565ff5d12b8cdfa86dad48c11551b9801fae9cc8e3d75656e94f223833e817cb2719786394@127.0.0.1:30301 --port 30303 --ipcdisable --http --http.addr 'localhost' --http.port 8640 --http.api "admin,eth,miner,net,txpool,personal,web3" --syncmode full --allow-insecure-unlock --unlock "0x5914AB4D448AfAeA82d0fA743Bc7935c9773D931" --password password.txt --mine console --miner.gasprice 0 --miner.gastarget 470000000000
+
+
+node2
+geth --networkid 14333 --datadir "./data" --bootnodes enode://c1448fca890fca855d782d59541a913c5dab06d575ee63d48a96e2565ff5d12b8cdfa86dad48c11551b9801fae9cc8e3d75656e94f223833e817cb2719786394@127.0.0.1:30301 --port 30304 --ipcdisable --http --http.addr 'localhost' --http.port 8641 --http.api "admin,eth,miner,net,txpool,personal,web3" --syncmode full --allow-insecure-unlock --unlock "0x8d3f87F62DE3DDaD949DB4C9a095afC24D0b8f4C" --password password.txt --mine console --miner.gasprice 0 --miner.gastarget 470000000000
