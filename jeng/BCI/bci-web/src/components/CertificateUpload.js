@@ -3,12 +3,19 @@ import getWeb3 from "../getWeb3";
 import truffleContract from "truffle-contract";
 import detectEthereumProvider from '@metamask/detect-provider'
 import CertificateContract from "../contracts/Certificate.json"
+import VaxForm from "./VaxForm";
 
 const CertificateUpload = () => {
     const [pageState, setPageState] = useState({
         file: null,
         fileName: null,
         searchText: null
+    });
+
+    
+    const [vaxDetails, setVaxDetails] = useState({
+        firstDose: "",
+        secondDose: ""
     });
 
     const [ethState, setEthState] = useState({
@@ -63,10 +70,10 @@ const CertificateUpload = () => {
         });
     }
 
-    const sendToBlockchain = async (event) => {
+    const sendToBlockchain = async (fileHash, userId) => {
         const contract = ethState.contract;
         const account = ethState.accounts[0];
-        await contract.saveFileHashUserId("test123", 1, { from: account });
+        await contract.saveFileHashUserId(fileHash, userId, { from: account });
         alert('data sent to blockchain');
     }
 
@@ -77,25 +84,30 @@ const CertificateUpload = () => {
         });
     };
 
-    const onInputChange = e => {
-      setPageState({ ...pageState, [e.target.name]: e.target.value });
+    const sendDataToParent = (doseType, data) => {
+        setVaxDetails({ ...vaxDetails, [doseType]: data });
     };
 
-    const handleSearchUsers = async (ev) => {
-        ev.preventDefault();
-        const data = {
-            searchText: searchText
+    const submitRecord = async (e) => {
+        e.preventDefault();
+        e.target.reset();
+
+        const userId = 1;
+        const requestModel = {
+            userId: userId,
+            vaxDetails: vaxDetails
         };
 
-        const request = {
+        const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify(requestModel)
         };
 
-        const apiResult = await fetch('api/search-users', request);
-        const json = await apiResult.json();
-        console.log('users', json);
+        const response = await fetch('api/create-vaccine-record', requestOptions);
+        const data = await response.json();
+        const fileHash = data.fileHash;
+        await sendToBlockchain(fileHash, userId);
     }
 
     if (!ethState.contract) {
@@ -103,30 +115,15 @@ const CertificateUpload = () => {
     }
 
     return (
-        <div class="d-flex">
-            <form onSubmit={handleSearchUsers} class="d-flex align-items-center">
-                <div>
-                    <label>Search Text (Name, Email)</label>
-                    <input type="text" class="form-control mb-4"
-                        name="searchText" value={searchText}
-                        onChange={e => onInputChange(e)} />
+        <div className="d-flex justify-content-center">
+            <form onSubmit={submitRecord} className="w-50 mt-4 d-flex flex-column">
+                <div className="d-flex">
+                    <VaxForm title={'First Dose'} doseType={'firstDose'} sendDataToParent={sendDataToParent}></VaxForm>
+                    <VaxForm title={'Second Dose'} doseType={'secondDose'} sendDataToParent={sendDataToParent}></VaxForm>
                 </div>
-                <div>
-                    <button>Search</button>
-                </div>
+                <br/>
+                <button type="submit" className="btn btn-primary w-50 align-self-center">Submit</button>
             </form>
-            <form onSubmit={handleUploadImage}>
-                <div class="form-group">
-                    <input type="file" onChange={onFileChange} />
-                </div>
-                <br />
-                <div>
-                    <button className="btn btn-primary">Upload</button>
-                </div>
-            </form>
-            <div>
-                <button onClick={sendToBlockchain}>Send To Blockchain</button>
-            </div>
         </div>
     );
 }

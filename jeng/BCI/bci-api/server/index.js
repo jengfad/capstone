@@ -79,3 +79,13 @@ app.get('/api/generate-pdf', async (req, res, next) => {
   await pdfService.generatePdf();
   res.send("success");
 });
+
+app.post('/api/create-vaccine-record', async (req, res, next) => { 
+  const userId = req.body.userId;
+  const vaxDetails = req.body.vaxDetails;
+  // await pdfService.generatePdf(vaxDetails);
+  const result = {
+    fileHash: 'someguid123'
+  }
+  res.send(result)
+});

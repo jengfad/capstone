@@ -15,7 +15,7 @@ ChainID: 14333
 To Start GethPoa
 
 1. 
-cd bootnode
+cd bnode
 bootnode -nodekey './boot.key' -verbosity 7 -addr '127.0.0.1:30301'
 
 2.

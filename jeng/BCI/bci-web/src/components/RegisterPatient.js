@@ -29,7 +29,6 @@ const RegisterPatient = () => {
             .then(response => {
                 alert('Data Inserted');
             });
-        
     }
 
     return (
