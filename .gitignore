@@ -291,3 +291,7 @@ src/CMS/ExcelConsulting.CMS.CourseManagement/App_Data/Models/models.hash
 
 # Visual Studio extension: Switch Startup Project (added by Matt) https://heptapod.host/thirteen/switchstartupproject
 *.sln.startup.json
+
+**/data/geth
+**/data/geth/chaindata
+**/data/geth/triecache
