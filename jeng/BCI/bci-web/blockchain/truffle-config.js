@@ -9,7 +9,8 @@ module.exports = {
       host: "127.0.0.1",
       port: 8640 ,
       network_id: "14333", // Match any network id
-      websockets: false
+      websockets: false,
+      gas: 4712388
     }
   }
 };

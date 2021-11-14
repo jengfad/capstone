@@ -53,5 +53,13 @@ module.exports = {
         const result = await request.query(query.trim());
         const keys = result.recordset[0];
         return keys;
+    },
+    
+    getPatient: async (userId) => {
+        const request = await dbUtil.createDbRequest();
+        request.input('UserId', sql.Int, userId);
+        const query = `SELECT ID, FirstName, LastName, Email FROM [dbo].[User] WHERE ID = @UserId`;
+        const result = await request.query(query.trim());
+        return result.recordset[0];
     }
 }

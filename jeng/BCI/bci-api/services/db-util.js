@@ -1,15 +1,29 @@
 var sql = require("mssql");
 
+// wtw
+// var config = {
+//     user: 'admin',
+//     password: 'P@ssw0rd123',
+//     server: 'PCM-4V2V5S2\\MSSQLSERVER01', 
+//     database: 'BCI',
+//     options: {
+//         trustServerCertificate: true,
+//         encrypt: false
+//     }
+// };
+
+// omen
 var config = {
-    user: 'admin',
+    user: 'admin2',
     password: 'P@ssw0rd123',
-    server: 'PCM-4V2V5S2\\MSSQLSERVER01', 
+    server: 'localhost',
     database: 'BCI',
     options: {
         trustServerCertificate: true,
         encrypt: false
     }
 };
+
 
 module.exports = {
     createDbRequest: async () => {

@@ -16,7 +16,7 @@ const VaxForm = ({ title, doseType, sendDataToParent }) => {
     const { dateAdministered, brand, vaccinator, site } = vaxDetails;
 
     return(
-        <div className="card w-100" style={{marginRight:'20px'}}>
+        <div className="card w-100" style={{marginBottom:'10px'}}>
             <div className="card-body">
                 <h5>{title}</h5>
                 <div className="form-group mb-3">

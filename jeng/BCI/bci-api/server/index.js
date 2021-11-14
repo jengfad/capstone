@@ -52,6 +52,12 @@ app.post('/api/search-users', async (req, res, next) => {
   res.send(users);
 })
 
+app.get('/api/patient/:id', async (req, res, next) => {
+  const userId = req.params.id;
+  const patient = await userService.getPatient(userId);
+  res.send(patient);
+})
+
 app.post('/api/view-cert', async (req, res, next) => {
   const userId = req.body.userId;
   const cid = req.body.cid;

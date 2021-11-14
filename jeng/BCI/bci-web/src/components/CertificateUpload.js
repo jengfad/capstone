@@ -4,27 +4,23 @@ import truffleContract from "truffle-contract";
 import detectEthereumProvider from '@metamask/detect-provider'
 import CertificateContract from "../contracts/Certificate.json"
 import VaxForm from "./VaxForm";
+import contract from "truffle-contract";
+import ScanPatientId from "./ScanPatientId";
 
 const CertificateUpload = () => {
-    const [pageState, setPageState] = useState({
-        file: null,
-        fileName: null,
-        searchText: null
-    });
-
-    
     const [vaxDetails, setVaxDetails] = useState({
+        patientId: null,
         firstDose: "",
         secondDose: ""
     });
+
+    const {patientId} = vaxDetails;
 
     const [ethState, setEthState] = useState({
         web3: null,
         accounts: null,
         contract: null,
-    })
-    
-    const { searchText } = pageState;
+    });
 
     useEffect(() => {
         const initWeb3 = async () => {
@@ -52,24 +48,6 @@ const CertificateUpload = () => {
 
     }, []);
 
-    const handleUploadImage = (ev) => {
-        ev.preventDefault();
-
-        const data = new FormData();
-        data.append('file', pageState.file);
-        data.append('userId', pageState.userId);
-        console.log(pageState.userId);
-
-        const request = {
-            method: 'POST',
-            body: data
-        };
-
-        fetch('upload', request).then((response) => {
-            console.log('done upload')
-        });
-    }
-
     const sendToBlockchain = async (fileHash, userId) => {
         const contract = ethState.contract;
         const account = ethState.accounts[0];
@@ -77,15 +55,21 @@ const CertificateUpload = () => {
         alert('data sent to blockchain');
     }
 
-    const onFileChange = event => {
-        setPageState({
-            ...pageState,
-            file: event.target.files[0]
-        });
-    };
+    const checkFileHash = async () => {
+        const fileHash = 'someguid123';
+        const userId = 1;
+        const contract = ethState.contract;
+        const account = ethState.accounts[0];
+        const isExists = await contract.isFileHashUserIdExists(fileHash, userId, { from: account });
+        alert(isExists);
+    }
 
     const sendDataToParent = (doseType, data) => {
         setVaxDetails({ ...vaxDetails, [doseType]: data });
+    };
+
+    const emitPatientId = (patientId) => {
+        setVaxDetails({ ...vaxDetails, patientId: patientId });
     };
 
     const submitRecord = async (e) => {
@@ -115,15 +99,23 @@ const CertificateUpload = () => {
     }
 
     return (
-        <div className="d-flex justify-content-center">
-            <form onSubmit={submitRecord} className="w-50 mt-4 d-flex flex-column">
-                <div className="d-flex">
-                    <VaxForm title={'First Dose'} doseType={'firstDose'} sendDataToParent={sendDataToParent}></VaxForm>
-                    <VaxForm title={'Second Dose'} doseType={'secondDose'} sendDataToParent={sendDataToParent}></VaxForm>
-                </div>
+        <div className="d-flex justify-content-around">
+            <div>
+                <ScanPatientId emitPatientId={emitPatientId}></ScanPatientId>
+            </div>
+            <form onSubmit={submitRecord} className="w-50 d-flex flex-column" style={{maxWidth:'500px'}}>
+                {patientId == null && <p className="text-danger">Please scan a Patient QR Code first.</p>}
+                <VaxForm title={'First Dose'} doseType={'firstDose'} sendDataToParent={sendDataToParent}></VaxForm>
+                <VaxForm title={'Second Dose'} doseType={'secondDose'} sendDataToParent={sendDataToParent}></VaxForm>
                 <br/>
-                <button type="submit" className="btn btn-primary w-50 align-self-center">Submit</button>
+                <div>
+                    <button disabled={patientId == null} type="submit" className="btn btn-primary w-50">Submit</button>
+                </div>
             </form>
+            {/* <div>
+                <button onClick={checkFileHash}>Check Hash</button>
+            </div> */}
+            
         </div>
     );
 }
