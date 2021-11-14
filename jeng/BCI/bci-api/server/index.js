@@ -86,10 +86,8 @@ app.get('/api/generate-pdf', async (req, res, next) => {
   res.send("success");
 });
 
-app.post('/api/create-vaccine-record', async (req, res, next) => { 
-  const userId = req.body.userId;
-  const vaxDetails = req.body.vaxDetails;
-  // await pdfService.generatePdf(vaxDetails);
+app.post('/api/create-vaccine-record', async (req, res, next) => {
+  await pdfService.generatePdf(req.body);
   const result = {
     fileHash: 'someguid123'
   }

@@ -10,11 +10,14 @@ import ScanPatientId from "./ScanPatientId";
 const CertificateUpload = () => {
     const [vaxDetails, setVaxDetails] = useState({
         patientId: null,
+        firstName: '', 
+        lastName: '', 
+        email: '',
         firstDose: "",
         secondDose: ""
     });
 
-    const {patientId} = vaxDetails;
+    const {patientId, firstName, lastName, email} = vaxDetails;
 
     const [ethState, setEthState] = useState({
         web3: null,
@@ -44,7 +47,7 @@ const CertificateUpload = () => {
                 console.log(error);
             }
         }
-        initWeb3();
+        // initWeb3();
 
     }, []);
 
@@ -68,40 +71,40 @@ const CertificateUpload = () => {
         setVaxDetails({ ...vaxDetails, [doseType]: data });
     };
 
-    const emitPatientId = (patientId) => {
-        setVaxDetails({ ...vaxDetails, patientId: patientId });
+    const handlePatientDetails = (details) => {
+        setVaxDetails({ 
+            ...vaxDetails, 
+            patientId: details.patientId,
+            firstName: details.firstName,
+            lastName: details.lastName,
+            email: details.email
+        });
     };
 
     const submitRecord = async (e) => {
         e.preventDefault();
         e.target.reset();
 
-        const userId = 1;
-        const requestModel = {
-            userId: userId,
-            vaxDetails: vaxDetails
-        };
-
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(requestModel)
+            body: JSON.stringify(vaxDetails)
         };
 
         const response = await fetch('api/create-vaccine-record', requestOptions);
         const data = await response.json();
         const fileHash = data.fileHash;
-        await sendToBlockchain(fileHash, userId);
+        // await sendToBlockchain(fileHash, userId);
     }
 
-    if (!ethState.contract) {
-        return <div>Loading Web3, accounts, and contract...</div>;
-    }
+    // if (!ethState.contract) {
+    //     return <div>Loading Web3, accounts, and contract...</div>;
+    // }
 
     return (
         <div className="d-flex justify-content-around">
             <div>
-                <ScanPatientId emitPatientId={emitPatientId}></ScanPatientId>
+                <ScanPatientId handlePatientDetails={handlePatientDetails}></ScanPatientId>
             </div>
             <form onSubmit={submitRecord} className="w-50 d-flex flex-column" style={{maxWidth:'500px'}}>
                 {patientId == null && <p className="text-danger">Please scan a Patient QR Code first.</p>}

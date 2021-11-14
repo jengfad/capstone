@@ -2,7 +2,7 @@ import React from 'react'
 import QrReader from 'react-qr-scanner'
 import { useState } from "react";
 
-const ScanPatientId = ({ emitPatientId }) => {
+const ScanPatientId = ({ handlePatientDetails }) => {
     
     const [patient, setPatient] = useState({
         firstName: "",
@@ -38,7 +38,6 @@ const ScanPatientId = ({ emitPatientId }) => {
         }
 
         await getPatientDetails(input.userId);
-        emitPatientId(input.userId)
     }
     
     const handleError = (err) => {
@@ -49,6 +48,7 @@ const ScanPatientId = ({ emitPatientId }) => {
         const url = `api/patient/${userId}`;
         const response = await fetch(url);
         const data = await response.json();
+        
         setPatient({ 
             ...patient,
             patientId: data.ID,
@@ -56,18 +56,29 @@ const ScanPatientId = ({ emitPatientId }) => {
             lastName: data.LastName,
             email: data.Email,
         });
+
+        const model = {
+            patientId: data.ID,
+            firstName: data.FirstName,
+            lastName: data.LastName,
+            email: data.Email,
+        }
+
+        handlePatientDetails(model);
     }
 
     return (
         <div className="card">
             <div className="card-body">
-                <h5>Scan Patient ID</h5>
+                <button onClick={() => getPatientDetails(1)}>Trigger Manually</button>
+
+                {/* <h5>Scan Patient ID</h5>
                 <QrReader
                     delay={delay}
                     style={previewStyle}
                     onError={handleError}
                     onScan={handleScan}
-                />
+                /> */}
                 <div>
                     <table className='table table-striped'>
                         <tr>
