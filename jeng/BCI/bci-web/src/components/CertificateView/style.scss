@@ -1,0 +1,14 @@
+main {
+    font-family: Roboto, sans-serif;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    font-size: 16px;
+    display: flex;
+}
+
+.pdf-holder {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+}
