@@ -58,7 +58,7 @@ app.get('/api/patient/:id', async (req, res, next) => {
   res.send(patient);
 })
 
-app.post('/api/view-cert', async (req, res, next) => {
+app.post('/api/view-cert-with-encryption', async (req, res, next) => {
   const userId = req.body.userId;
   const cid = req.body.cid;
   const encryptedFile = await ipfsService.getFile(cid);
@@ -66,6 +66,18 @@ app.post('/api/view-cert', async (req, res, next) => {
   const decryptedFileBase64 = await pgpService.decryptFile(encryptedFile, keys.EncryptedPrivateKey);
   const data = {
     base64: decryptedFileBase64.toString()
+  }
+  res.send(JSON.stringify(data));
+})
+
+app.post('/api/view-cert', async (req, res, next) => {
+  const userId = req.body.userId;
+  const certRecord = await certService.getCertificateByUserId(userId);
+  const cid = certRecord.CID;
+  const file = await ipfsService.getFile(cid);
+  const body = fs.readFileSync(file);
+  const data = {
+    base64: body.toString('base64')
   }
   res.send(JSON.stringify(data));
 })
@@ -79,17 +91,26 @@ app.get('/add-file', async (req, res, next) => {
 app.post('/register-patient', async (req, res, next) => {
   const result = await userService.registerPatient(req.body);
   res.send("success");
-})
-
-app.get('/api/generate-pdf', async (req, res, next) => {
-  await pdfService.generatePdf();
-  res.send("success");
 });
 
 app.post('/api/create-vaccine-record', async (req, res, next) => {
-  await pdfService.generatePdf(req.body);
+  const details = req.body;
+  const certFile = await pdfService.generatePdf(req.body);
+
+  const summary = JSON.stringify({
+    firstDose: details.firstDose["dateAdministered"],
+    secondDose: details.secondDose["dateAdministered"]
+  });
+
+  const cid = await ipfsService.addFile(certFile); // actual
+  const fileHash = pgpService.getFileHash(certFile);
+  const userId = details.patientId;
+
+  await certService.insertCert(userId, fileHash, cid, summary);
+
   const result = {
-    fileHash: 'someguid123'
-  }
+    fileHash: fileHash
+  };
+
   res.send(result)
 });

@@ -21,12 +21,14 @@ module.exports = {
             .replace('{{vaccinator2ndDose}}', secondDose["vaccinator"])
             .replace('{{site2ndDose}}', secondDose["site"])
 
+        const filepath = `certs/patient-${data.patientId}.pdf`
+
         return new Promise((resolve, reject) => {
-            pdf.create(html, options).toFile('cert-sample.pdf', function (err, res) {
+            pdf.create(html, options).toFile(filepath, function (err, res) {
                 if (err) {
                     reject();
                 }
-                resolve();
+                resolve(filepath);
             });
         });
     }
