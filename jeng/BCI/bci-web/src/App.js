@@ -7,7 +7,6 @@ import './custom.css'
 import CertificateUpload from './components/CertificateUpload';
 import RegisterPatient from './components/RegisterPatient';
 import CertificateView from './components/CertificateView';
-import ScanQr from './components/ScanQr';
 import PatientPage from './components/PatientPage';
 import SummaryCodeScan from './components/SummaryCodeScan';
 
@@ -22,7 +21,6 @@ export default class App extends Component {
         <Route path='/cert-list' component={CertificateList} />
         <Route path='/register-patient' component={RegisterPatient} />
         <Route path='/view-cert' component={CertificateView} />
-        <Route path='/scan-qr' component={ScanQr} />
         <Route path='/patient-page' component={PatientPage} />
         <Route path='/scan-summary-code' component={SummaryCodeScan} />
       </Layout>
