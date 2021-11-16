@@ -65,8 +65,8 @@ app.post('/api/view-cert-with-encryption', async (req, res, next) => {
   res.send(JSON.stringify(data));
 })
 
-app.post('/api/view-cert', async (req, res, next) => {
-  const userId = req.body.userId;
+app.get('/api/view-cert/:patientId', async (req, res, next) => {
+  const userId = req.params.patientId;
   const certRecord = await certService.getCertificateByUserId(userId);
   const cid = certRecord.CID;
   const file = await ipfsService.getFile(cid);

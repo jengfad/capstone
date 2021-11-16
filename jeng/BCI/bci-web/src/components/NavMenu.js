@@ -34,22 +34,16 @@ const NavMenu = () => {
                             <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/view-cert">View Certificate</NavLink>
-                        </NavItem>
-                        <NavItem>
                             <NavLink tag={Link} className="text-dark" to="/upload-cert">Upload Certificate</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink tag={Link} className="text-dark" to="/register-patient">Register Patient</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/view-cert">View Certificate</NavLink>
-                        </NavItem>
-                        <NavItem>
                             <NavLink tag={Link} className="text-dark" to="/scan-qr">Scan QR</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/view-summary">View Summary</NavLink>
+                            <NavLink tag={Link} className="text-dark" to="/patient-page">Patient Page</NavLink>
                         </NavItem>
                         </ul>
                     </Collapse>
