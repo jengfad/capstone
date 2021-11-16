@@ -36,12 +36,21 @@ const CertificateView = () => {
         numPages: 1
     });
 
+    const downloadFile = () => {
+        var blob = new Blob([file], {type: "application/pdf"});
+        var objectUrl = URL.createObjectURL(blob);
+        window.open(objectUrl);
+    }
+
     const { file } = details;
     
     return (
         <main>
+            <div>
+                <button onClick={downloadFile} className="btn btn-primary mb-2">Download File</button>
+            </div>
             <section className="pdf-holder">
-            <PdfDisplay source={file} />
+                <PdfDisplay source={file} />
             </section>
         </main>
     );

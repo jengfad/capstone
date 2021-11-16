@@ -13,13 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(fileUpload());
 
-
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
-});
-
-app.get("/", (req, res) => {
-    res.send("Hello world");
 });
 
 app.get("/certificates", async (req, res) => {
@@ -86,12 +81,6 @@ app.get('/api/view-summary/:patientId', async(req, res, next) => {
   const userId = req.params.patientId;
   const record = await certService.getSummaryByUserId(userId);
   res.send(record);
-})
-
-app.get('/add-file', async (req, res, next) => {
-  const file = fs.readFileSync("office.jpg");
-  const addedFile = await ipfsService.addFile(file);
-  res.send("success");
 })
 
 app.post('/register-patient', async (req, res, next) => {
