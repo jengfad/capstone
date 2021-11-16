@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { dataURLtoFile, fileToBinary } from "../../helpers/file-helpers";
+import QRCode from "react-qr-code";
+import SummaryView from "../SummaryView";
 
 const PatientPage = () => {
 
@@ -11,10 +13,11 @@ const PatientPage = () => {
         firstDose: "",
         secondDose: "",
         file: null,
+        fileHash: null,
         userId: 1
     });
 
-    const {firstName, lastName, address, firstDose, secondDose, file, userId} = details;
+    const {firstName, lastName, address, firstDose, secondDose, file, fileHash, userId} = details;
 
     const downloadFile = async () => {
         const binaryFile = await fileToBinary(file);
@@ -36,12 +39,15 @@ const PatientPage = () => {
         const data = await response.json();
         const base64Param = `data:application/pdf;base64,${data.base64}`;
         const result = dataURLtoFile(base64Param,'cert.pdf');
-        return result;
+        return {
+            file: dataURLtoFile(base64Param,'cert.pdf'),
+            fileHash: data.fileHash
+        };
     }
 
     useEffect(() => {
         const fetchData = async () => {
-            const certFile = await fetchCertificate();
+            const cert = await fetchCertificate();
             const data = await fetchSummary();
             const summary = JSON.parse(data.Summary);
             setDetails({ 
@@ -51,7 +57,8 @@ const PatientPage = () => {
                 address: data.Address,
                 firstDose: summary.firstDose,
                 secondDose: summary.secondDose,
-                file: certFile
+                file: cert.file,
+                fileHash: cert.fileHash
             });
         }
 
@@ -59,26 +66,21 @@ const PatientPage = () => {
     }, []);
 
     return (
-        <div>
-            <button onClick={downloadFile} className="btn btn-primary mb-2">Download File</button>
-            <table>
-                <tr>
-                    <td>Full Name</td>
-                    <td>{`${firstName} ${lastName}`}</td>
-                </tr>
-                <tr>
-                    <td>Address</td>
-                    <td>{address}</td>
-                </tr>
-                <tr>
-                    <td>First Dose</td>
-                    <td>{firstDose}</td>
-                </tr>
-                <tr>
-                    <td>Second Dose</td>
-                    <td>{secondDose}</td>
-                </tr>
-            </table>
+        <div className="d-flex align-items-center justify-content-center">
+            <div className="card mx-5">
+                <div className="card-body">
+                    <SummaryView details={details}></SummaryView>
+                </div>
+            </div>
+            <div className="card">
+                <div className="card-body">    
+                    <h5>Vax Summary Code</h5>
+                    {fileHash !== null && <QRCode value={fileHash} />}
+                    <div className="mt-4">
+                        <button onClick={downloadFile} className="btn btn-primary mb-2">Download Certificate</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

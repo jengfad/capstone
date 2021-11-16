@@ -72,7 +72,8 @@ app.get('/api/view-cert/:patientId', async (req, res, next) => {
   const file = await ipfsService.getFile(cid);
   const body = fs.readFileSync(file);
   const data = {
-    base64: body.toString('base64')
+    base64: body.toString('base64'),
+    fileHash: certRecord.FileHash
   }
   res.send(JSON.stringify(data));
 })
