@@ -82,6 +82,12 @@ app.post('/api/view-cert', async (req, res, next) => {
   res.send(JSON.stringify(data));
 })
 
+app.get('/api/view-summary/:patientId', async(req, res, next) => {
+  const userId = req.params.patientId;
+  const record = await certService.getSummaryByUserId(userId);
+  res.send(record);
+})
+
 app.get('/add-file', async (req, res, next) => {
   const file = fs.readFileSync("office.jpg");
   const addedFile = await ipfsService.addFile(file);

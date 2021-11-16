@@ -30,5 +30,22 @@ module.exports = {
         const query = `SELECT * FROM [dbo].[Certificate] WHERE UserID = @UserId`;
         const result = await request.query(query.trim());
         return result.recordset[0];
+    },
+
+    getSummaryByUserId: async (userId) => {
+        const request = await dbUtil.createDbRequest();
+        request.input('UserId', sql.Int, userId);
+        const query = `
+            SELECT	u.[FirstName]
+                    ,u.[LastName]
+                    ,u.[Address]
+                    ,c.[Summary]
+            FROM dbo.[User] u
+            INNER JOIN dbo.[Certificate] c
+                ON c.UserID = u.ID
+            WHERE u.ID = @UserId
+        `;
+        const result = await request.query(query.trim());
+        return result.recordset[0];
     }
 }

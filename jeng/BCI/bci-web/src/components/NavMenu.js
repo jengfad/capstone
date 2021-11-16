@@ -48,6 +48,9 @@ const NavMenu = () => {
                         <NavItem>
                             <NavLink tag={Link} className="text-dark" to="/scan-qr">Scan QR</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} className="text-dark" to="/view-summary">View Summary</NavLink>
+                        </NavItem>
                         </ul>
                     </Collapse>
                 </Container>
