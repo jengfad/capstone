@@ -78,9 +78,15 @@ app.get('/api/view-cert/:patientId', async (req, res, next) => {
   res.send(JSON.stringify(data));
 })
 
-app.get('/api/view-summary/:patientId', async(req, res, next) => {
+app.get('/api/summary/patient/:patientId', async(req, res, next) => {
   const userId = req.params.patientId;
   const record = await certService.getSummaryByUserId(userId);
+  res.send(record);
+})
+
+app.get('/api/summary/filehash/:filehash', async(req, res, next) => {
+  const filehash = req.params.filehash;
+  const record = await certService.getSummaryByFileHash(filehash);
   res.send(record);
 })
 

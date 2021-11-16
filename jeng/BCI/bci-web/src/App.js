@@ -9,6 +9,7 @@ import RegisterPatient from './components/RegisterPatient';
 import CertificateView from './components/CertificateView';
 import ScanQr from './components/ScanQr';
 import PatientPage from './components/PatientPage';
+import SummaryCodeScan from './components/SummaryCodeScan';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -23,6 +24,7 @@ export default class App extends Component {
         <Route path='/view-cert' component={CertificateView} />
         <Route path='/scan-qr' component={ScanQr} />
         <Route path='/patient-page' component={PatientPage} />
+        <Route path='/scan-summary-code' component={SummaryCodeScan} />
       </Layout>
     );
   }
