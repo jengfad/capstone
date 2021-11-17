@@ -45,6 +45,9 @@ const NavMenu = () => {
                         <NavItem>
                             <NavLink tag={Link} className="text-dark" to="/scan-summary-code">Scan Summary Code</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} className="text-dark" to="/validate-cert">Validate Certificate</NavLink>
+                        </NavItem>
                         </ul>
                     </Collapse>
                 </Container>

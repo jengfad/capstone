@@ -34,11 +34,10 @@ const PatientPage = () => {
     }
 
     const fetchCertificate = async () => {
-        const url = `api/view-cert/${userId}`;
+        const url = `api/cert/patient/${userId}`;
         const response = await fetch(url);
         const data = await response.json();
         const base64Param = `data:application/pdf;base64,${data.base64}`;
-        const result = dataURLtoFile(base64Param,'cert.pdf');
         return {
             file: dataURLtoFile(base64Param,'cert.pdf'),
             fileHash: data.fileHash

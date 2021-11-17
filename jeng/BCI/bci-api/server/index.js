@@ -65,7 +65,7 @@ app.post('/api/view-cert-with-encryption', async (req, res, next) => {
   res.send(JSON.stringify(data));
 })
 
-app.get('/api/view-cert/:patientId', async (req, res, next) => {
+app.get('/api/cert/patient/:patientId', async (req, res, next) => {
   const userId = req.params.patientId;
   const certRecord = await certService.getCertificateByUserId(userId);
   const cid = certRecord.CID;
@@ -93,6 +93,16 @@ app.get('/api/summary/filehash/:filehash', async(req, res, next) => {
 app.post('/register-patient', async (req, res, next) => {
   const result = await userService.registerPatient(req.body);
   res.send("success");
+});
+
+app.post('/api/cert/validate', async (req, res, next) => {
+  let file = req.files.file.data;
+  const fileHash = pgpService.getFileHash(file);
+
+  // TODO - validate against blockchain
+  const record = await certService.getSummaryByFileHash(fileHash);
+  const isValid = !!record && record !== null;
+  res.send(isValid);
 });
 
 app.post('/api/create-vaccine-record', async (req, res, next) => {
