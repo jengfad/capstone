@@ -97,7 +97,7 @@ app.post('/register-patient', async (req, res, next) => {
 
 app.post('/api/cert/validate', async (req, res, next) => {
   let file = req.files.file.data;
-  const fileHash = pgpService.getFileHash(file);
+  const fileHash = pgpService.getFileBufferHash(file);
 
   // TODO - validate against blockchain
   const record = await certService.getSummaryByFileHash(fileHash);
@@ -107,15 +107,15 @@ app.post('/api/cert/validate', async (req, res, next) => {
 
 app.post('/api/create-vaccine-record', async (req, res, next) => {
   const details = req.body;
-  const certFile = await pdfService.generatePdf(req.body);
+  const certFilePath = await pdfService.generatePdf(req.body);
 
   const summary = JSON.stringify({
     firstDose: details.firstDose["dateAdministered"],
     secondDose: details.secondDose["dateAdministered"]
   });
 
-  const cid = await ipfsService.addFile(certFile); // actual
-  const fileHash = pgpService.getFileHash(certFile);
+  const cid = await ipfsService.addFile(certFilePath); // actual
+  const fileHash = pgpService.getFileHash(certFilePath);
   const userId = details.patientId;
 
   await certService.insertCert(userId, fileHash, cid, summary);

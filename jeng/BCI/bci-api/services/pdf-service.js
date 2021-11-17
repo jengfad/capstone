@@ -28,7 +28,8 @@ module.exports = {
                 if (err) {
                     reject();
                 }
-                resolve(filepath);
+
+                resolve(res.filename);
             });
         });
     }
