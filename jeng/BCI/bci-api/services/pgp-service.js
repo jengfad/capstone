@@ -57,13 +57,15 @@ module.exports = {
     },
 
     encryptFile: async (file, publicKey) => {
+        const filepath = 'encrypted.txt'
         const fileBase64 = file.toString('base64');
         const encrypted = await openpgp.encrypt({
             message: openpgp.message.fromText(fileBase64),
             publicKeys: (await openpgp.key.readArmored(publicKey)).keys,
         });
 
-        fs.writeFileSync('encrypted.txt', encrypted.data);
+        fs.writeFileSync(filepath, encrypted.data);
+        return filepath;
     },
 
     decryptFile: async (file, privateKeyValue) => {

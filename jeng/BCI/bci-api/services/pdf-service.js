@@ -16,12 +16,10 @@ function getAge(dateString) {
 
 module.exports = {
     generatePdf: async (data) => {
-        console.log('the data', data);
         const fullName = `${data.firstName} ${data.lastName}`;
         const firstDose = data.firstDose;
         const secondDose = data.secondDose;
         const age = getAge(data.birthdate.toString());
-        console.log('full name', fullName)
         html = html.replace('{{fullName}}', fullName)
             .replace('{{address}}', data.address)
             .replace('{{age}}', age)

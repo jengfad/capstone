@@ -27,52 +27,23 @@ app.get("/generate-key", async (req, res) => {
   res.send("keys generated");
 })
 
-app.post('/upload', async (req, res, next) => {
-  let file = req.files.file.data;
-  const userId = req.body.userId;
-  const keys = await userService.getUserKeys(userId);
-  await pgpService.encryptFile(file, keys.PublicKey);
-  const encryptedFile = fs.readFileSync("encrypted.txt");
-  // const cid = await ipfsService.addFile(encryptedFile); // actual
-  const cid = "bafybeiegpugl5bzoo3ybaj4vmlqltzvrw4tsuf6mnwkvllu7j5zo6k3jzu"; // debug
-  const fileHash = pgpService.getFileHash(file);
-  await certService.insertCert(userId, fileHash, cid);
-  res.send(cid);
-})
-
-app.post('/api/search-users', async (req, res, next) => {
-  console.log(req);
-  const searchText = req.body.searchText;
-  const users = await userService.searchUsers(searchText);
-  res.send(users);
-})
-
 app.get('/api/patient/:id', async (req, res, next) => {
   const userId = req.params.id;
   const patient = await userService.getPatient(userId);
   res.send(patient);
 })
 
-app.post('/api/view-cert-with-encryption', async (req, res, next) => {
-  const userId = req.body.userId;
-  const cid = req.body.cid;
-  const encryptedFile = await ipfsService.getFile(cid);
-  const keys = await userService.getUserKeys(userId);
-  const decryptedFileBase64 = await pgpService.decryptFile(encryptedFile, keys.EncryptedPrivateKey);
-  const data = {
-    base64: decryptedFileBase64.toString()
-  }
-  res.send(JSON.stringify(data));
-})
-
 app.get('/api/cert/patient/:patientId', async (req, res, next) => {
   const userId = req.params.patientId;
   const certRecord = await certService.getCertificateByUserId(userId);
   const cid = certRecord.CID;
-  const file = await ipfsService.getFile(cid);
-  const body = fs.readFileSync(file);
+  
+  const encryptedFile = await ipfsService.getFile(cid);
+  const keys = await userService.getUserKeys(userId);
+  const decryptedFileBase64 = await pgpService.decryptFile(encryptedFile, keys.EncryptedPrivateKey);
+
   const data = {
-    base64: body.toString('base64'),
+    base64: decryptedFileBase64.toString(),
     fileHash: certRecord.FileHash
   }
   res.send(JSON.stringify(data));
@@ -105,17 +76,30 @@ app.post('/api/cert/validate', async (req, res, next) => {
   res.send(isValid);
 });
 
+app.get('/api/delete-cert/:userid', async (req, res, next) => {
+  const deleteCert = await certService.deleteCertificate(req.params.userid);
+  res.send('delete done')
+})
+
 app.post('/api/create-vaccine-record', async (req, res, next) => {
   const details = req.body;
+  const deleteCert = await certService.deleteCertificate(details.patientId);
   const certFilePath = await pdfService.generatePdf(req.body);
+  const fileBuffer = fs.readFileSync(certFilePath);
 
   const summary = JSON.stringify({
     firstDose: details.firstDose["dateAdministered"],
     secondDose: details.secondDose["dateAdministered"]
   });
 
-  const cid = await ipfsService.addFile(certFilePath); // actual
-  const fileHash = pgpService.getFileHash(certFilePath);
+  const fileHash = pgpService.getFileBufferHash(fileBuffer);
+
+  // encrypt
+  const keys = await userService.getUserKeys(details.patientId);
+  const encryptedFilepath = await pgpService.encryptFile(fileBuffer, keys.PublicKey);
+  const encryptedFileBuffer = fs.readFileSync(encryptedFilepath);
+
+  const cid = await ipfsService.addFile(encryptedFileBuffer); // actual
   const userId = details.patientId;
 
   await certService.insertCert(userId, fileHash, cid, summary);

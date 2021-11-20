@@ -24,6 +24,14 @@ module.exports = {
         await request.query(query.trim());
     },
 
+    deleteCertificate: async (userId) => {
+        const request = await dbUtil.createDbRequest();
+        request.input('UserId', sql.Int, userId);
+        const query = `DELETE FROM [dbo].[Certificate] WHERE UserID = @UserId`;
+        const result = await request.query(query.trim());
+        return true;
+    },
+
     getCertificateByUserId: async (userId) => {
         const request = await dbUtil.createDbRequest();
         request.input('UserId', sql.Int, userId);
