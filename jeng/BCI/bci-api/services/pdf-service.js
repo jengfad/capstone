@@ -3,15 +3,28 @@ var pdf = require('html-pdf');
 var html = fs.readFileSync('cert-template.html', 'utf8');
 var options = { format: 'Letter' };
 
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
 module.exports = {
     generatePdf: async (data) => {
         console.log('the data', data);
         const fullName = `${data.firstName} ${data.lastName}`;
         const firstDose = data.firstDose;
         const secondDose = data.secondDose;
+        const age = getAge(data.birthdate.toString());
+        console.log('full name', fullName)
         html = html.replace('{{fullName}}', fullName)
-            // .replace('{{address}}', model.address)
-            // .replace('{{age}}', model.age)
+            .replace('{{address}}', data.address)
+            .replace('{{age}}', age)
             .replace('{{date1stDose}}', firstDose["dateAdministered"])
             .replace('{{brand1stDose}}', firstDose["brand"])
             .replace('{{vaccinator1stDose}}', firstDose["vaccinator"])

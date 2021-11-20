@@ -90,7 +90,7 @@ app.get('/api/summary/filehash/:filehash', async(req, res, next) => {
   res.send(record);
 })
 
-app.post('/register-patient', async (req, res, next) => {
+app.post('/api/register-patient', async (req, res, next) => {
   const result = await userService.registerPatient(req.body);
   res.send("success");
 });

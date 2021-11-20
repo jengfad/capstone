@@ -8,7 +8,9 @@ const ScanPatientId = ({ handlePatientDetails }) => {
         firstName: "",
         lastName: "",
         email: "",
-        patientId: ""
+        patientId: "",
+        address: "",
+        birthdate: ""
     });
 
     const previewStyle = {
@@ -16,7 +18,7 @@ const ScanPatientId = ({ handlePatientDetails }) => {
       width: 320,
     }
 
-    const { patientId, firstName, lastName, email } = patient;
+    const { patientId, firstName, lastName, email, address, birthdate } = patient;
 
     const delay = 100;
 
@@ -55,6 +57,8 @@ const ScanPatientId = ({ handlePatientDetails }) => {
             firstName: data.FirstName,
             lastName: data.LastName,
             email: data.Email,
+            address: data.Address,
+            birthdate: data.Birthdate
         });
 
         const model = {
@@ -62,6 +66,8 @@ const ScanPatientId = ({ handlePatientDetails }) => {
             firstName: data.FirstName,
             lastName: data.LastName,
             email: data.Email,
+            address: data.Address,
+            birthdate: data.Birthdate
         }
 
         handlePatientDetails(model);
@@ -70,7 +76,7 @@ const ScanPatientId = ({ handlePatientDetails }) => {
     return (
         <div className="card">
             <div className="card-body">
-                <button onClick={() => getPatientDetails(1)}>Trigger Manually</button>
+                <button onClick={() => getPatientDetails(2)}>Trigger Manually</button>
 
                 {/* <h5>Scan Patient ID</h5>
                 <QrReader

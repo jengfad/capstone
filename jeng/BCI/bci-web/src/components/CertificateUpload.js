@@ -13,11 +13,13 @@ const CertificateUpload = () => {
         firstName: '', 
         lastName: '', 
         email: '',
+        address: '',
+        birthdate: '',
         firstDose: "",
         secondDose: ""
     });
 
-    const {patientId, firstName, lastName, email} = vaxDetails;
+    const {patientId} = vaxDetails;
 
     const [ethState, setEthState] = useState({
         web3: null,
@@ -77,7 +79,9 @@ const CertificateUpload = () => {
             patientId: details.patientId,
             firstName: details.firstName,
             lastName: details.lastName,
-            email: details.email
+            email: details.email,
+            address: details.address,
+            birthdate: details.birthdate
         });
     };
 

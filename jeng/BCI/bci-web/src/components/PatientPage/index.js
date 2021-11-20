@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { dataURLtoFile, fileToBinary } from "../../helpers/file-helpers";
 import QRCode from "react-qr-code";
 import SummaryView from "../SummaryView";
+import { useParams } from "react-router-dom";
 
 const PatientPage = () => {
 
+    const { patientId } = useParams();
     const [details, setDetails] = useState({
         firstName: "",
         lastName: "",
@@ -13,11 +15,10 @@ const PatientPage = () => {
         firstDose: "",
         secondDose: "",
         file: null,
-        fileHash: null,
-        userId: 1
+        fileHash: null
     });
 
-    const {firstName, lastName, address, firstDose, secondDose, file, fileHash, userId} = details;
+    const {file, fileHash} = details;
 
     const downloadFile = async () => {
         const binaryFile = await fileToBinary(file);
@@ -27,14 +28,14 @@ const PatientPage = () => {
     }
 
     const fetchSummary = async () => {
-        const url = `api/summary/patient/${userId}`;
+        const url = `/api/summary/patient/${patientId}`;
         const response = await fetch(url);
         const data = await response.json();
         return data;
     }
 
     const fetchCertificate = async () => {
-        const url = `api/cert/patient/${userId}`;
+        const url = `/api/cert/patient/${patientId}`;
         const response = await fetch(url);
         const data = await response.json();
         const base64Param = `data:application/pdf;base64,${data.base64}`;

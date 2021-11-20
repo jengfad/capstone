@@ -11,6 +11,8 @@ module.exports = {
         request.input('FirstName', sql.NVarChar, model.firstName);
         request.input('LastName', sql.NVarChar, model.lastName);
         request.input('Email', sql.NVarChar, model.email);
+        request.input('Address', sql.NVarChar, model.address);
+        request.input('Birthdate', sql.NVarChar, model.birthdate);
         request.input('PublicKey', sql.NVarChar, keys.publicKey);
         request.input('EncryptedPrivateKey', sql.NVarChar, keys.privateKey);
         request.input('HashedPassword', sql.NVarChar, 'password123');
@@ -20,6 +22,8 @@ module.exports = {
            ([FirstName]
            ,[LastName]
            ,[Email]
+           ,[Address]
+           ,[Birthdate]
            ,[PublicKey]
            ,[EncryptedPrivateKey]
            ,[HashedPassword])
@@ -27,6 +31,8 @@ module.exports = {
             (@FirstName
             ,@LastName
             ,@Email
+            ,@Address
+            ,@Birthdate
             ,@PublicKey
             ,@EncryptedPrivateKey
             ,@HashedPassword)`;

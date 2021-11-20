@@ -6,14 +6,16 @@ const RegisterPatient = () => {
         firstName: "",
         lastName: "",
         email: "",
-        password: ""
+        password: "",
+        address: "",
+        birthdate: null
     });
     
     const onInputChange = e => {
       setUser({ ...user, [e.target.name]: e.target.value });
     };
 
-    const { firstName, lastName, email, password } = user;
+    const { firstName, lastName, email, password, address, birthdate } = user;
 
     const submitRecord = async (e) => {
         e.preventDefault();
@@ -25,9 +27,9 @@ const RegisterPatient = () => {
             body: JSON.stringify(user)
         };
 
-        fetch('register-patient', requestOptions)
+        fetch('api/register-patient', requestOptions)
             .then(response => {
-                alert('Data Inserted');
+                alert('Thank you for registering! You will be redirected to home page.');
             });
     }
 
@@ -37,26 +39,38 @@ const RegisterPatient = () => {
             <form onSubmit={submitRecord} className="w-50 mt-4">
                 <div class="form-group">
                     <label>First Name</label>
-                    <input type="text" class="form-control  mb-4"
+                    <input type="text" class="form-control mb-4"
                         name="firstName" value={firstName}
                         onChange={e => onInputChange(e)}/>
                 </div>
                 <div class="form-group">
                     <label>Last Name</label>
-                    <input type="text" class="form-control  mb-4"
+                    <input type="text" class="form-control mb-4"
                         name="lastName" value={lastName}
                         onChange={e => onInputChange(e)}/>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" class="form-control  mb-4"
+                    <input type="text" class="form-control mb-4"
                         name="email" value={email}
                         onChange={e => onInputChange(e)}/>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" class="form-control  mb-4"
+                    <input type="password" class="form-control mb-4"
                         name="password" value={password}
+                        onChange={e => onInputChange(e)}/>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control mb-4"
+                        name="address" value={address}
+                        onChange={e => onInputChange(e)}/>
+                </div>
+                <div class="form-group">
+                    <label>Birthdate (mm/dd/yyyy)</label>
+                    <input type="text" class="form-control mb-4"
+                        name="birthdate" value={birthdate}
                         onChange={e => onInputChange(e)}/>
                 </div>
                 <button type="submit" class="btn btn-primary mt-4">Save</button>
