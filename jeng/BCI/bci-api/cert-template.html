@@ -1,10 +1,20 @@
 <style>
+
+    body {
+        font-family: Helvetica, Arial, Sans-Serif;
+    }
+
+    img.ph-logo {
+        background-image: url();
+    }
+
     .center-layout {
         margin: auto;
         width: 50%;
     }
+
     .main-wrapper {
-        margin: 100px 200px 100px 200px;
+        margin: 75px 150px 75px 150px;
     }
 
     .text-left {
@@ -15,11 +25,7 @@
         text-align: center;
     }
 
-    h3.title {
-        text-decoration: underline;
-    }
-
-    table, th, td {
+    .table-border {
         border: 1px solid black;
         border-collapse: collapse;
     }
@@ -28,38 +34,91 @@
         padding: 5px;
     }
 
+    table.no-border {
+        border: none;
+    }
+
 </style>
 <div class="main-wrapper">
-    <h3 class="title text-center">CERTIFICATE OF VACCINATION</h3>
-    <br /><br />
-    <p class="text-left">&emsp;&emsp;This is to certify that <b>{{fullName}}</b>, {{age}} years of age, residing at {{address}}, was fully vaccinated by the Local Government Unit.</p>
+    <div class="center-layout text-center">
+        <img width="105" height="120" src={{phLogo}} />
+    </div>
+    <h3 class="title text-center">COVID-19 Vaccination Certificate</h3>
     <br />
-    <table class="center-layout">
+    <table style="border-bottom: 1px solid gray; font-size: x-small; color: gray; width: 100%;">
         <tr>
-            <td></td>
-            <td class="text-center">1st Dose</td>
-            <td class="text-center">2nd Dose</td>
+            <td class="text-center">Proof of Vaccination</td>
+            <td class="text-center">Issued by PH</td>
+            <td class="text-center">Version 1</td>
         </tr>
+    </table>
+    <br />
+    <table class="no-border" cellspacing="0" cellpadding="0" style="width: 100%">
         <tr>
-            <td>Date Administered</td>
-            <td>{{date1stDose}}</td>
-            <td>{{date2ndDose}}</td>
+            <td>
+                <img width="200" class="qr-code" src="{{qrCode}}" />
+                <p style="font-size: x-small;">Protect the QR code from marks and damage</p>
+            </td>
+            <td>
+                <table class="no-border" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>Name of holder:</td>
+                        <td>{{fullName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth:</td>
+                        <td>{{birthdate}}</td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>{{address}}</td>
+                    </tr>
+                </table>
+            </td>
         </tr>
-        <tr>
-            <td>Brand</td>
-            <td>{{brand1stDose}}</td>
-            <td>{{brand2ndDose}}</td>
-        </tr>
-        <tr>
-            <td>Vaccinator</td>
-            <td>{{vaccinator1stDose}}</td>
-            <td>{{vaccinator2ndDose}}</td>
-        </tr>
-        <tr>
-            <td>Site</td>
-            <td>{{site1stDose}}</td>
-            <td>{{site2ndDose}}</td>
-        </tr>
+    </table>
+    <br />
+    <table style="width: 100%; background: lightgray; border: 1px solid gray">
+        <tbody>
+            <tr>
+                <td style="font-weight: bold; font-size: smaller;">VACCINATION EVENT</td>
+            </tr>
+            <tr>
+                <td>Vaccine or prophylaxis</td>
+                <td>Vaccine Brand</td>
+                <td>Disease or Agent Targeted</td>
+            </tr>
+            <tr>
+                <td><b>XM68M6</b> (COVID-19)</td>
+                <td style="font-weight: bold;">COVID-19 {{brand1stDose}}</td>
+                <td><b>RA01.0</b> (COVID-19)</td>
+            </tr>
+        </tbody>
+    </table>
+    <table style="border: 1px solid gray">
+        <tbody>
+            <tr>
+                <td>Date of Vaccination</td>
+                <td>Dose Number</td>
+                <td>Country of Vaccination</td>
+                <td>Administering Center</td>
+                <td>Vaccine Batch Number</td>
+            </tr>
+            <tr>
+                <td>{{date1stDose}}</td>
+                <td>1</td>
+                <td>PH</td>
+                <td>{{site1stDose}}</td>
+                <td>BATCH-123</td>
+            </tr>
+            <tr>
+                <td>{{date2ndDose}}</td>
+                <td>2</td>
+                <td>PH</td>
+                <td>{{site2ndDose}}</td>
+                <td>BATCH-123</td>
+            </tr>
+        </tbody>
     </table>
     <br />
     <p>&emsp;&emsp;This certificate is issued on {{dateGenerated}} for whatever legal purpose this may serve best.</p>
@@ -69,5 +128,5 @@
         alt="Red dot" />
     </div>
     <p class="text-center">Jaime Santos, MD</p>
-    <p class="text-center">City Health Officer</p>
+    <p class="text-center">Authorized Health Officer</p>
 </div>

@@ -1,7 +1,12 @@
 var fs = require('fs');
 var pdf = require('html-pdf');
-var html = fs.readFileSync('cert-template.html', 'utf8');
+const srcService = require("./image-src-service");
 var options = { format: 'Letter' };
+const qrcode = require('qrcode');
+const qrOption = {
+  width : 200,
+  margin: 0
+};
 
 function getAge(dateString) {
     var today = new Date();
@@ -14,14 +19,33 @@ function getAge(dateString) {
     return age;
 }
 
+function getFormattedDate(dateString) {
+    var dt = new Date(dateString);
+    return `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`
+}
+
+function getDateToday() {
+    var dt = new Date();
+    return `${dt.getFullYear()}/${dt.getMonth()}/${dt.getDate()}`
+}
+
 module.exports = {
     generatePdf: async (data) => {
+        let html = fs.readFileSync('cert-template.html', 'utf8');
         const fullName = `${data.firstName} ${data.lastName}`;
         const firstDose = data.firstDose;
         const secondDose = data.secondDose;
         const age = getAge(data.birthdate.toString());
-        html = html.replace('{{fullName}}', fullName)
+        const birthdate = getFormattedDate(data.birthdate);
+        const qrCode = await qrcode.toDataURL(data.patientId.toString(), qrOption)
+        const phLogo = srcService.getPhLogo();
+        const dateNow = getDateToday();
+        html = html.replace('{{qrCode}}', qrCode)
+            .replace('{{phLogo}}', phLogo)
+            .replace('{{fullName}}', fullName)
+            .replace('{{dateGenerated}}', dateNow)
             .replace('{{address}}', data.address)
+            .replace('{{birthdate}}', birthdate)
             .replace('{{age}}', age)
             .replace('{{date1stDose}}', firstDose["dateAdministered"])
             .replace('{{brand1stDose}}', firstDose["brand"])
@@ -30,7 +54,7 @@ module.exports = {
             .replace('{{date2ndDose}}', secondDose["dateAdministered"])
             .replace('{{brand2ndDose}}', secondDose["brand"])
             .replace('{{vaccinator2ndDose}}', secondDose["vaccinator"])
-            .replace('{{site2ndDose}}', secondDose["site"])
+            .replace('{{site2ndDose}}', secondDose["site"]);
 
         const filepath = `certs/patient-${data.patientId}.pdf`
 
@@ -43,7 +67,9 @@ module.exports = {
                 resolve(res.filename);
             });
         });
-    }
+    },
+
+    
 }
 
 

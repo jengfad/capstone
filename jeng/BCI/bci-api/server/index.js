@@ -8,6 +8,10 @@ const pdfService = require("../services/pdf-service");
 const fs = require("fs");
 const PORT = process.env.PORT || 7777;
 let app = express();
+const qrcode = require('qrcode');
+const qrOption = {
+  width : 250
+};
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -81,10 +85,20 @@ app.get('/api/delete-cert/:userid', async (req, res, next) => {
   res.send('delete done')
 })
 
+app.get('/api/generate-qr', async (req, res, next) => {
+  const qrString = 'b171c8dfa1758bc9136e7a33d241a5068a5ba6fc68b99c09126a31939e8bee6f';
+  const bufferImage = await qrcode.toDataURL(qrString,qrOption);
+
+  const base64 = bufferImage.toString('base64');
+  console.log(base64);
+});
+
 app.post('/api/create-vaccine-record', async (req, res, next) => {
   const details = req.body;
-  const deleteCert = await certService.deleteCertificate(details.patientId);
+  await certService.deleteCertificate(details.patientId);
   const certFilePath = await pdfService.generatePdf(req.body);
+
+  return;
   const fileBuffer = fs.readFileSync(certFilePath);
 
   const summary = JSON.stringify({
@@ -109,4 +123,16 @@ app.post('/api/create-vaccine-record', async (req, res, next) => {
   };
 
   res.send(result)
+});
+
+app.get('/testqr', (req, res) => {
+  const qrString = 'b171c8dfa1758bc9136e7a33d241a5068a5ba6fc68b99c09126a31939e8bee6f';
+  qrcode.toDataURL(qrString, qrOption).then(url => {
+      res.send(`
+      <h2>QRCode Generated</h2>
+      <div><img src='${url}'/></div>
+    `)
+  }).catch(err => {
+      console.debug(err)
+  })
 });
