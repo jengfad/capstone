@@ -9,8 +9,10 @@ const VaxForm = ({ title, doseType, sendDataToParent }) => {
     });
 
     const onInputChange = e => {
-        setVaxDetails({ ...vaxDetails, [e.target.name]: e.target.value });
-        sendDataToParent(doseType, vaxDetails);
+        const details = JSON.parse(JSON.stringify(vaxDetails));
+        details[e.target.name] = e.target.value;
+        setVaxDetails(details);
+        sendDataToParent(doseType, details);
     };
   
     const { dateAdministered, brand, vaccinator, site } = vaxDetails;

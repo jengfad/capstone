@@ -15,8 +15,7 @@ const CertificateUpload = () => {
         email: '',
         address: '',
         birthdate: '',
-        firstDose: "",
-        secondDose: ""
+        doses: {}
     });
 
     const {patientId} = vaxDetails;
@@ -70,7 +69,9 @@ const CertificateUpload = () => {
     }
 
     const sendDataToParent = (doseType, data) => {
-        setVaxDetails({ ...vaxDetails, [doseType]: data });
+        const doses = JSON.parse(JSON.stringify(vaxDetails.doses));
+        doses[doseType] = data;
+        setVaxDetails({ ...vaxDetails, doses: doses });
     };
 
     const handlePatientDetails = (details) => {
@@ -112,8 +113,8 @@ const CertificateUpload = () => {
             </div>
             <form onSubmit={submitRecord} className="w-50 d-flex flex-column" style={{maxWidth:'500px'}}>
                 {patientId == null && <p className="text-danger">Please scan a Patient QR Code first.</p>}
-                <VaxForm title={'First Dose'} doseType={'firstDose'} sendDataToParent={sendDataToParent}></VaxForm>
-                <VaxForm title={'Second Dose'} doseType={'secondDose'} sendDataToParent={sendDataToParent}></VaxForm>
+                <VaxForm title={'Dose 1'} doseType={'dose1'} sendDataToParent={sendDataToParent}></VaxForm>
+                <VaxForm title={'Dose 2'} doseType={'dose2'} sendDataToParent={sendDataToParent}></VaxForm>
                 <br/>
                 <div>
                     <button disabled={patientId == null} type="submit" className="btn btn-primary w-50">Submit</button>
