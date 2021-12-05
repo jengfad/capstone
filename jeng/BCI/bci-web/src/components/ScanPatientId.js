@@ -84,22 +84,24 @@ const ScanPatientId = ({ handlePatientDetails }) => {
                 />
                 <div>
                     <table className='table table-striped'>
-                        <tr>
-                            <td>Patient ID</td>
-                            <td>{patientId}</td>
-                        </tr>
-                        <tr>
-                            <td>Last Name</td>
-                            <td>{lastName}</td>
-                        </tr>
-                        <tr>
-                            <td>First Name</td>
-                            <td>{firstName}</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>{email}</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>Patient ID</td>
+                                <td>{patientId}</td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <td>{lastName}</td>
+                            </tr>
+                            <tr>
+                                <td>First Name</td>
+                                <td>{firstName}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{email}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

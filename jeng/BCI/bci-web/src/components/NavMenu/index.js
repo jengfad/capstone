@@ -2,11 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './NavMenu.css';
+import './style.scss';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faShieldVirus } from "@fortawesome/free-solid-svg-icons";
+import { ROLE } from "../../constants/role";
 
 library.add(faShieldVirus);
 
@@ -16,6 +17,10 @@ const NavMenu = () => {
     const toggleNavbar = () => {
         setCollapsed(!collapsed);
     }
+
+    const role = window.localStorage.getItem("role");
+    const isInternal = role === ROLE.internal.name;
+    const isPatient = role === ROLE.patient.name;
 
     return (
         <header>
@@ -30,24 +35,35 @@ const NavMenu = () => {
                     <NavbarToggler onClick={toggleNavbar} className="mr-2" />
                     <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
                         <ul className="navbar-nav flex-grow">
-                        <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/upload-cert">Upload Certificate</NavLink>
-                        </NavItem>
-                        <NavItem>
+                        {
+                            isInternal &&
+                            <NavItem>
+                                <NavLink tag={Link} className="text-dark" to="/upload-cert">Upload Certificate</NavLink>
+                            </NavItem>
+                        }
+                        {
+                            isPatient &&
+                            <NavItem>
+                                <NavLink tag={Link} className="text-dark" to="/patient-page">Patient Page</NavLink>
+                            </NavItem>
+                        }
+                        {
+                            (isPatient || isInternal) &&
+                            <NavItem>
+                                <NavLink tag={Link} className="text-dark" to="/logout">Logout</NavLink>
+                            </NavItem>
+                        }
+                        
+                        {/* <NavItem>
                             <NavLink tag={Link} className="text-dark" to="/register-patient">Register Patient</NavLink>
                         </NavItem>
-                        <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/patient-page">Patient Page</NavLink>
-                        </NavItem>
+                        
                         <NavItem>
                             <NavLink tag={Link} className="text-dark" to="/scan-summary-code">Scan Summary Code</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink tag={Link} className="text-dark" to="/validate-cert">Validate Certificate</NavLink>
-                        </NavItem>
+                        </NavItem> */}
                         </ul>
                     </Collapse>
                 </Container>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import { ROLE } from "../../constants/role";
 
 const Login = () => {
 
@@ -17,9 +18,9 @@ const Login = () => {
     const { email, password } = user;
 
     const routeToPage = (data) => {
-        if (role === "patient") {
+        if (role === ROLE.patient.name) {
             history.push(`/patient-page/${data.ID}`);
-        } else if (role === "internal") {
+        } else if (role === ROLE.internal.name) {
             history.push(`/upload-cert`);
         }
     }
@@ -29,9 +30,9 @@ const Login = () => {
         e.preventDefault();
         e.target.reset();
         
-        if (role === "patient") {
+        if (role === ROLE.patient.name) {
             model["roleId"] = 1
-        } else if (role === "internal") {
+        } else if (role === ROLE.internal.name) {
             model["roleId"] = 2
         }
 
@@ -45,6 +46,8 @@ const Login = () => {
         const data = await response.json();
 
         if (data !== null) {
+            window.localStorage.setItem('userId', data.ID);
+            window.localStorage.setItem('role', role);
             routeToPage(data);
         }
     }
