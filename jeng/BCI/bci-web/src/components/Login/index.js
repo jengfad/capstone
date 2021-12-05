@@ -16,6 +16,14 @@ const Login = () => {
 
     const { email, password } = user;
 
+    const routeToPage = (data) => {
+        if (role === "patient") {
+            history.push(`/patient-page/${data.ID}`);
+        } else if (role === "internal") {
+            history.push(`/upload-cert`);
+        }
+    }
+
     const submitRecord = async (e) => {
         const model = JSON.parse(JSON.stringify(user));
         e.preventDefault();
@@ -23,6 +31,8 @@ const Login = () => {
         
         if (role === "patient") {
             model["roleId"] = 1
+        } else if (role === "internal") {
+            model["roleId"] = 2
         }
 
         const requestOptions = {
@@ -35,7 +45,7 @@ const Login = () => {
         const data = await response.json();
 
         if (data !== null) {
-            history.push(`/patient-page/${data.ID}`)
+            routeToPage(data);
         }
     }
 
