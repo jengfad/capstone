@@ -123,7 +123,6 @@ const CertificateUpload = () => {
             {/* <div>
                 <button onClick={checkFileHash}>Check Hash</button>
             </div> */}
-            
         </div>
     );
 }

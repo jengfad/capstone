@@ -40,6 +40,27 @@ module.exports = {
         await request.query(query.trim());
     },
 
+    getUserByEmailPassword: async (email, password, roleId) => {
+        const request = await dbUtil.createDbRequest();
+        request.input('Email', sql.NVarChar, email);
+        request.input('Password', sql.NVarChar, password);
+        request.input('RoleID', sql.Int, roleId);
+
+        console.log(`${email} - ${password} - ${roleId}`);
+
+        const query = `
+            SELECT	u.[ID]
+                    ,u.[FirstName]
+                    ,u.[LastName]
+            FROM dbo.[User] u
+            WHERE u.Email = @Email
+            AND u.HashedPassword = @Password
+            AND u.RoleID = @RoleID
+        `;
+        const result = await request.query(query.trim());
+        return result.recordset[0];
+    },
+
     searchUsers: async (searchText) => {
         const request = await dbUtil.createDbRequest();
         console.log('searchText', searchText);

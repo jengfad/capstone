@@ -70,6 +70,15 @@ app.post('/api/register-patient', async (req, res, next) => {
   res.send("success");
 });
 
+app.post('/api/login', async (req, res, next) => {
+  const result = await userService.getUserByEmailPassword(
+    req.body.email,
+    req.body.password,
+    req.body.roleId
+  );
+  res.send(result);
+});
+
 app.post('/api/cert/validate', async (req, res, next) => {
   let file = req.files.file.data;
   const fileHash = pgpService.getFileBufferHash(file);

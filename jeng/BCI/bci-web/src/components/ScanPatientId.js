@@ -18,7 +18,7 @@ const ScanPatientId = ({ handlePatientDetails }) => {
       width: 320,
     }
 
-    const { patientId, firstName, lastName, email, address, birthdate } = patient;
+    const { patientId, firstName, lastName, email } = patient;
 
     const delay = 100;
 
