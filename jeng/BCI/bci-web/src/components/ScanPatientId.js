@@ -34,12 +34,9 @@ const ScanPatientId = ({ handlePatientDetails }) => {
             return;
         }
 
-        if (!input.userId) {
-            alert('Invalid QR Code');
-            return;
-        }
+        alert('Successfully retrieved patientId')
 
-        await getPatientDetails(input.userId);
+        await getPatientDetails(input);
     }
     
     const handleError = (err) => {
@@ -76,15 +73,15 @@ const ScanPatientId = ({ handlePatientDetails }) => {
     return (
         <div className="card">
             <div className="card-body">
-                <button onClick={() => getPatientDetails(2)}>Trigger Manually</button>
+                {/* <button onClick={() => getPatientDetails(2)}>Trigger Manually</button> */}
 
-                {/* <h5>Scan Patient ID</h5>
+                <h5>Scan Patient ID</h5>
                 <QrReader
                     delay={delay}
                     style={previewStyle}
                     onError={handleError}
                     onScan={handleScan}
-                /> */}
+                />
                 <div>
                     <table className='table table-striped'>
                         <tr>

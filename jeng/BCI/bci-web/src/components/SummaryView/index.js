@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
-const SummaryView = ({ details }) => {
+import QRCode from "react-qr-code";
+const SummaryView = ({ details, patientId }) => {
 
     const {firstName, lastName, address} = details;
 
@@ -20,9 +21,12 @@ const SummaryView = ({ details }) => {
                         <div>{address}</div>
                     </div>
                 </div>
+                <div className="d-flex flex-column align-items-center detail" style={{width: "100%"}}>
+                    <div className="small-label mb-2">Patient Code</div>
+                    {patientId !== null && <QRCode size={150} value={patientId.toString()} />}
+                </div>
             </div>
         </div>
-
     );
 }
 

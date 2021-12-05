@@ -70,7 +70,7 @@ const PatientPage = () => {
         <div className="d-flex justify-content-center my-5 flex-column flex-lg-row">
             <div className="card m-3">
                 <div className="card-body">
-                    <SummaryView details={details}></SummaryView>
+                    <SummaryView details={details} patientId={patientId}></SummaryView>
                 </div>
             </div>
             <div className="card m-3">
