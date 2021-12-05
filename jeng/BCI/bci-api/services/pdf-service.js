@@ -31,11 +31,9 @@ function getDateToday() {
 
 module.exports = {
     generatePdf: async (data) => {
-        let html = fs.readFileSync('cert-template.html', 'utf8');
+        let html = fs.readFileSync('templates/cert-template.html', 'utf8');
         const dateToday = new Date();
         const fullName = `${data.firstName} ${data.lastName}`;
-        const dose1 = data.doses.dose1;
-        const dose2 = data.doses.dose2;
         const age = getAge(data.birthdate.toString());
         const birthdate = getFormattedDate(data.birthdate);
         const qrCode = await qrcode.toDataURL(data.patientId.toString(), qrOption)
@@ -48,14 +46,20 @@ module.exports = {
             .replace(/{{address}}/g, data.address)
             .replace(/{{birthdate}}/g, birthdate)
             .replace(/{{age}}/g, age)
-            .replace(/{{dateDose1}}/g, getFormattedDate(dose1["dateAdministered"]))
-            .replace(/{{brandDose1}}/g, dose1["brand"])
-            .replace(/{{vaccinatorDose1}}/g, dose1["vaccinator"])
-            .replace(/{{siteDose1}}/g, dose1["site"])
-            .replace(/{{dateDose2}}/g, getFormattedDate(dose2["dateAdministered"]))
-            .replace(/{{brandDose2}}/g, dose2["brand"])
-            .replace(/{{vaccinatorDose2}}/g, dose2["vaccinator"])
-            .replace(/{{siteDose2}}/g, dose2["site"]);
+
+        let rows = "";
+        for (let key in data.doses) {
+            let dose = data.doses[key];
+            let row = fs.readFileSync('templates/dose-template.html', 'utf8');
+            row = row.replace(/{{dateAdministered}}/g, getFormattedDate(dose["dateAdministered"]))
+                .replace(/{{doseNumber}}/g, key.replace("dose", ""))
+                .replace(/{{brand}}/g, dose["brand"])
+                .replace(/{{vaccinator}}/g, dose["vaccinator"])
+                .replace(/{{site}}/g, dose["site"]);
+            rows = rows + row;
+        }
+        
+        html = html.replace(/{{doseRows}}/g, rows);
 
         const filepath = `certs/patient-${data.patientId}.pdf`
 

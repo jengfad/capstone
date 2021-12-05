@@ -2,24 +2,27 @@ const sql = require("mssql");
 const dbUtil = require("../services/db-util");
 
 module.exports = {
-    insertCert: async (userId, fileHash, cid, summary) => {
+    insertCert: async (userId, fileHash, cid, summary, summaryHash) => {
         const request = await dbUtil.createDbRequest();
         request.input('UserID', sql.Int, userId);
         request.input('FileHash', sql.NVarChar, fileHash);
         request.input('CID', sql.NVarChar, cid);
         request.input('Summary', sql.NVarChar, summary);
+        request.input('SummaryHash', sql.NVarChar, summaryHash);
 
         const query = `
         INSERT INTO [dbo].[Certificate]
            ([UserID]
            ,[FileHash]
            ,[CID]
-           ,[Summary])
+           ,[Summary]
+           ,[SummaryHash])
         VALUES
             (@UserID
             ,@FileHash
             ,@CID
-            ,@Summary)`;
+            ,@Summary
+            ,@SummaryHash)`;
         
         await request.query(query.trim());
     },
@@ -65,6 +68,7 @@ module.exports = {
                     ,u.[LastName]
                     ,u.[Address]
                     ,c.[Summary]
+                    ,c.[SummaryHash]
             FROM dbo.[User] u
             INNER JOIN dbo.[Certificate] c
                 ON c.UserID = u.ID

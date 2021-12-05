@@ -97,15 +97,10 @@ app.post('/api/create-vaccine-record', async (req, res, next) => {
   const details = req.body;
   await certService.deleteCertificate(details.patientId);
   const certFilePath = await pdfService.generatePdf(req.body);
-
-  return;
   const fileBuffer = fs.readFileSync(certFilePath);
 
-  const summary = JSON.stringify({
-    firstDose: details.firstDose["dateAdministered"],
-    secondDose: details.secondDose["dateAdministered"]
-  });
-
+  const summary = JSON.stringify(details.doses);
+  const summaryHash = pgpService.getStringHash(summary);
   const fileHash = pgpService.getFileBufferHash(fileBuffer);
 
   // encrypt
@@ -116,7 +111,7 @@ app.post('/api/create-vaccine-record', async (req, res, next) => {
   const cid = await ipfsService.addFile(encryptedFileBuffer); // actual
   const userId = details.patientId;
 
-  await certService.insertCert(userId, fileHash, cid, summary);
+  await certService.insertCert(userId, fileHash, cid, summary, summaryHash);
 
   const result = {
     fileHash: fileHash

@@ -45,7 +45,7 @@
     </div>
     <h3 class="title text-center">COVID-19 Vaccination Certificate</h3>
     <br />
-    <table style="border-bottom: 1px solid gray; font-size: x-small; color: gray; width: 100%;">
+    <table style="border-bottom: 1px solid gray; font-size: smaller; color: gray; width: 100%;">
         <tr>
             <td class="text-center">Proof of Vaccination</td>
             <td class="text-center">Issued by PH</td>
@@ -85,12 +85,10 @@
             </tr>
             <tr>
                 <td>Vaccine or prophylaxis</td>
-                <td>Vaccine Brand</td>
                 <td>Disease or Agent Targeted</td>
             </tr>
             <tr>
                 <td><b>XM68M6</b> (COVID-19)</td>
-                <td style="font-weight: bold;">COVID-19 {{brandDose1}}</td>
                 <td><b>RA01.0</b> (COVID-19)</td>
             </tr>
         </tbody>
@@ -106,24 +104,7 @@
                 <td>Vaccinator</td>
                 <td>Vaccine Batch Number</td>
             </tr>
-            <tr>
-                <td>{{dateDose1}}</td>
-                <td>1</td>
-                <td>{{brandDose1}}</td>
-                <td>PH</td>
-                <td>{{siteDose1}}</td>
-                <td>{{vaccinatorDose1}}</td>
-                <td>BATCH-123</td>
-            </tr>
-            <tr>
-                <td>{{dateDose2}}</td>
-                <td>2</td>
-                <td>{{brandDose2}}</td>
-                <td>PH</td>
-                <td>{{siteDose2}}</td>
-                <td>{{vaccinatorDose2}}</td>
-                <td>BATCH-123</td>
-            </tr>
+            {{doseRows}}
         </tbody>
     </table>
     <br />

@@ -5,6 +5,7 @@ const VaxForm = ({ title, doseType, sendDataToParent }) => {
         dateAdministered: "",
         brand: "",
         vaccinator: "",
+        batchNumber: "",
         site: ""
     });
 
@@ -15,7 +16,7 @@ const VaxForm = ({ title, doseType, sendDataToParent }) => {
         sendDataToParent(doseType, details);
     };
   
-    const { dateAdministered, brand, vaccinator, site } = vaxDetails;
+    const { dateAdministered, brand, vaccinator, site, batchNumber } = vaxDetails;
 
     return(
         <div className="card w-100" style={{marginBottom:'10px'}}>
@@ -43,6 +44,12 @@ const VaxForm = ({ title, doseType, sendDataToParent }) => {
                     <label>Site</label>
                     <input type="text" className="form-control"
                         name="site" value={site}
+                        onChange={e => onInputChange(e)}/>
+                </div>
+                <div className="form-group mb-3">
+                    <label>Vaccine Batch Number</label>
+                    <input type="text" className="form-control"
+                        name="batchNumber" value={batchNumber}
                         onChange={e => onInputChange(e)}/>
                 </div>
             </div>

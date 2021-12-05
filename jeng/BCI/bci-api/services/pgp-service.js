@@ -6,6 +6,12 @@ const passphrase = "passphrase123";
 const curve = "ed25519";
 
 module.exports = {
+    getStringHash: (text) => {
+        const hashSum = crypto.createHash('sha256');
+        hashSum.update(text);
+        return hashSum.digest('hex');
+    },
+
     getFileHash: (filepath) => {
         const fileBuffer = fs.readFileSync(filepath);
         const hashSum = crypto.createHash('sha256');
