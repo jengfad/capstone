@@ -21,11 +21,11 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <Route path='/upload-cert' component={CertificateUpload} />
         <Route path='/cert-list' component={CertificateList} />
-        <Route path='/register-patient' component={RegisterPatient} />
+        <Route path='/register/patient' component={RegisterPatient} />
         <Route path='/view-cert' component={CertificateView} />
         <Route path='/patient-page/:patientId' component={PatientPage} />
-        <Route path='/scan-summary-code' component={SummaryCodeScan} />
-        <Route path='/validate-cert' component={CertificateValidate} />
+        <Route path='/validate/summary-code' component={SummaryCodeScan} />
+        <Route path='/validate/cert-file' component={CertificateValidate} />
         <Route path='/login/:role' component={Login} />
       </Layout>
     );

@@ -9,9 +9,10 @@ export class Home extends Component {
         <h1>Welcome to Vaxmon!</h1>
         <p>What do you want to do?</p>
         <ul>
-          <li><a href='https://get.asp.net/'>Login as Patient</a></li>
-          <li><a href='https://facebook.github.io/react/'>Login as Internal User</a></li>
-          <li><a href='http://getbootstrap.com/'>Go to Validation Page</a></li>
+          <li><a href='/login/patient'>Login as Patient</a></li>
+          <li><a href='/register/patient'>Register Patient</a></li>
+          <li><a href='/validate/summary-code'>Validate Summary Code</a></li>
+          <li><a href='/validate/cert-file'>Validate Vaccine Certificate File</a></li>
         </ul>
       </div>
     );

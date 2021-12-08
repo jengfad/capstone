@@ -40,4 +40,5 @@ truffle compile
 truffle migrate
 
 MISC
+- if metamask transaction is pending (hang) - reset that account (usually Account 1)
 see metamask-setup-localhost-network.png

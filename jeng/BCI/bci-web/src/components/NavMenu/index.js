@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './style.scss';
@@ -13,14 +13,24 @@ library.add(faShieldVirus);
 
 const NavMenu = () => {
     const [collapsed, setCollapsed] = useState(true);
+    const [showRoleLinks, setShowRoleLinks] = useState(true);
 
     const toggleNavbar = () => {
         setCollapsed(!collapsed);
     }
 
+    useEffect(() => {
+        if (window.location.href == "http://localhost:3000/" 
+            || window.location.href.indexOf("login") === -1
+            || window.location.href.indexOf("validate") === -1) {
+            setShowRoleLinks(false);
+        }
+    }, []);
+
     const role = window.localStorage.getItem("role");
     const isInternal = role === ROLE.internal.name;
     const isPatient = role === ROLE.patient.name;
+    const hasRole = isPatient || isInternal;
 
     return (
         <header>
@@ -33,39 +43,31 @@ const NavMenu = () => {
                         </div>
                     </NavbarBrand>
                     <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-                    <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
-                        <ul className="navbar-nav flex-grow">
-                        {
-                            isInternal &&
-                            <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="/upload-cert">Upload Certificate</NavLink>
-                            </NavItem>
-                        }
-                        {
-                            isPatient &&
-                            <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="/patient-page">Patient Page</NavLink>
-                            </NavItem>
-                        }
-                        {
-                            (isPatient || isInternal) &&
-                            <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="/logout">Logout</NavLink>
-                            </NavItem>
-                        }
-                        
-                        {/* <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/register-patient">Register Patient</NavLink>
-                        </NavItem>
-                        
-                        <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/scan-summary-code">Scan Summary Code</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="/validate-cert">Validate Certificate</NavLink>
-                        </NavItem> */}
-                        </ul>
-                    </Collapse>
+                    {
+                        !showRoleLinks &&
+                        <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
+                            <ul className="navbar-nav flex-grow">
+                            {
+                                isInternal &&
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/upload-cert">Upload Certificate</NavLink>
+                                </NavItem>
+                            }
+                            {
+                                isPatient &&
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/patient-page">Patient Page</NavLink>
+                                </NavItem>
+                            }
+                            {
+                                hasRole &&
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/logout">Logout</NavLink>
+                                </NavItem>
+                            }
+                            </ul>
+                        </Collapse>
+                    }
                 </Container>
             </Navbar>
         </header>

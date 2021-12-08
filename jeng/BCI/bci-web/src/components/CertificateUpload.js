@@ -48,24 +48,38 @@ const CertificateUpload = () => {
                 console.log(error);
             }
         }
-        // initWeb3();
+        initWeb3();
 
     }, []);
 
-    const sendToBlockchain = async (fileHash, userId) => {
+    const sendToBlockchain = async (fileHash, summaryHash) => {
         const contract = ethState.contract;
         const account = ethState.accounts[0];
-        await contract.saveFileHashUserId(fileHash, userId, { from: account });
+        await contract.saveFileHashUserId(fileHash, patientId, { from: account });
+        await contract.saveSummaryHashUserId(summaryHash, patientId, { from: account });
         alert('data sent to blockchain');
     }
 
+    const manualSendToBc = async () => {
+        const fileHash = '3a206c85ccf6a92931276f1eb10882069e868413aff3694761a8ee675dd50034'
+        const summaryHash = '1060832ae769ce5d899a5b1ecda4f9304d80d49b81f6d4f3e22fdcca5e9c040e'
+        await sendToBlockchain(fileHash, summaryHash);
+    }
+
     const checkFileHash = async () => {
-        const fileHash = 'someguid123';
-        const userId = 1;
+        const fileHash = '3a206c85ccf6a92931276f1eb10882069e868413aff3694761a8ee675dd50034';
         const contract = ethState.contract;
         const account = ethState.accounts[0];
-        const isExists = await contract.isFileHashUserIdExists(fileHash, userId, { from: account });
-        alert(isExists);
+        const isExists = await contract.isFileHashUserIdExists(fileHash, patientId, { from: account });
+        alert(`fileHash - ${fileHash} - ${isExists}`);
+    }
+
+    const checkSummaryHash = async () => {
+        const summaryHash = '1060832ae769ce5d899a5b1ecda4f9304d80d49b81f6d4f3e22fdcca5e9c040e';
+        const contract = ethState.contract;
+        const account = ethState.accounts[0];
+        const isExists = await contract.isSummaryHashUserIdExists(summaryHash, patientId, { from: account });
+        alert(`summaryHash - ${summaryHash} - ${isExists}`);
     }
 
     const sendDataToParent = (doseType, data) => {
@@ -99,15 +113,26 @@ const CertificateUpload = () => {
         const response = await fetch('api/create-vaccine-record', requestOptions);
         const data = await response.json();
         const fileHash = data.fileHash;
-        // await sendToBlockchain(fileHash, userId);
+        const summaryHash = data.summaryHash;
+        console.log('data', data);
+        await sendToBlockchain(fileHash, summaryHash);
     }
 
-    // if (!ethState.contract) {
-    //     return <div>Loading Web3, accounts, and contract...</div>;
-    // }
+    if (!ethState.contract) {
+        return <div>Loading Web3, accounts, and contract...</div>;
+    }
 
     return (
         <div className="d-flex justify-content-around">
+            {/* <div>
+                <h3>Manual Triggers</h3>
+                <br />
+                <button onClick={() => manualSendToBc()}>Manual Send to blockchain</button>
+                <br /><br />
+                <button onClick={() => checkFileHash()}>Manual Check Filehash</button>
+                <br /><br />
+                <button onClick={() => checkSummaryHash()}>Manual Check SummaryHash</button>
+            </div> */}
             <div>
                 <ScanPatientId handlePatientDetails={handlePatientDetails}></ScanPatientId>
             </div>

@@ -73,15 +73,15 @@ const ScanPatientId = ({ handlePatientDetails }) => {
     return (
         <div className="card">
             <div className="card-body">
-                {/* <button onClick={() => getPatientDetails(2)}>Trigger Manually</button> */}
-
-                <h5>Scan Patient ID</h5>
+                <button onClick={() => getPatientDetails(2)}>Trigger Manually</button>
+                
+                {/* <h5>Scan Patient ID</h5>
                 <QrReader
                     delay={delay}
                     style={previewStyle}
                     onError={handleError}
                     onScan={handleScan}
-                />
+                /> */}
                 <div>
                     <table className='table table-striped'>
                         <tbody>
