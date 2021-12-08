@@ -38,3 +38,6 @@ geth --networkid 14333 --datadir "./data" --bootnodes enode://c1448fca890fca855d
 cd bci-web/blockchain
 truffle compile
 truffle migrate
+
+MISC
+see metamask-setup-localhost-network.png
