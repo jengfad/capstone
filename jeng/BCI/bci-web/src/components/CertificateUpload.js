@@ -4,7 +4,6 @@ import truffleContract from "truffle-contract";
 import detectEthereumProvider from '@metamask/detect-provider'
 import CertificateContract from "../contracts/Certificate.json"
 import VaxForm from "./VaxForm";
-import contract from "truffle-contract";
 import ScanPatientId from "./ScanPatientId";
 
 const CertificateUpload = () => {
@@ -55,8 +54,7 @@ const CertificateUpload = () => {
     const sendToBlockchain = async (fileHash, summaryHash) => {
         const contract = ethState.contract;
         const account = ethState.accounts[0];
-        await contract.saveFileHashUserId(fileHash, patientId, { from: account });
-        await contract.saveSummaryHashUserId(summaryHash, patientId, { from: account });
+        await contract.saveUserIdHashes(fileHash, summaryHash, patientId, { from: account });
         alert('data sent to blockchain');
     }
 
@@ -72,14 +70,6 @@ const CertificateUpload = () => {
         const account = ethState.accounts[0];
         const isExists = await contract.isFileHashUserIdExists(fileHash, patientId, { from: account });
         alert(`fileHash - ${fileHash} - ${isExists}`);
-    }
-
-    const checkSummaryHash = async () => {
-        const summaryHash = '1060832ae769ce5d899a5b1ecda4f9304d80d49b81f6d4f3e22fdcca5e9c040e';
-        const contract = ethState.contract;
-        const account = ethState.accounts[0];
-        const isExists = await contract.isSummaryHashUserIdExists(summaryHash, patientId, { from: account });
-        alert(`summaryHash - ${summaryHash} - ${isExists}`);
     }
 
     const sendDataToParent = (doseType, data) => {
@@ -124,15 +114,15 @@ const CertificateUpload = () => {
 
     return (
         <div className="d-flex justify-content-around">
-            {/* <div>
+            <div>
                 <h3>Manual Triggers</h3>
                 <br />
                 <button onClick={() => manualSendToBc()}>Manual Send to blockchain</button>
                 <br /><br />
                 <button onClick={() => checkFileHash()}>Manual Check Filehash</button>
                 <br /><br />
-                <button onClick={() => checkSummaryHash()}>Manual Check SummaryHash</button>
-            </div> */}
+                {/* <button onClick={() => checkSummaryHash()}>Manual Check SummaryHash</button> */}
+            </div>
             <div>
                 <ScanPatientId handlePatientDetails={handlePatientDetails}></ScanPatientId>
             </div>
@@ -145,9 +135,6 @@ const CertificateUpload = () => {
                     <button disabled={patientId == null} type="submit" className="btn btn-primary w-50">Submit</button>
                 </div>
             </form>
-            {/* <div>
-                <button onClick={checkFileHash}>Check Hash</button>
-            </div> */}
         </div>
     );
 }

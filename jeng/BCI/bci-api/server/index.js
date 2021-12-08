@@ -59,9 +59,9 @@ app.get('/api/summary/patient/:patientId', async(req, res, next) => {
   res.send(record);
 })
 
-app.get('/api/summary/filehash/:filehash', async(req, res, next) => {
-  const filehash = req.params.filehash;
-  const record = await certService.getSummaryByFileHash(filehash);
+app.get('/api/summary/:summaryHash', async(req, res, next) => {
+  const summaryHash = req.params.summaryHash;
+  const record = await certService.getSummaryByHash(summaryHash);
   res.send(record);
 })
 
@@ -123,7 +123,8 @@ app.post('/api/create-vaccine-record', async (req, res, next) => {
   await certService.insertCert(userId, fileHash, cid, summary, summaryHash);
 
   const result = {
-    fileHash: fileHash
+    fileHash: fileHash,
+    summaryHash: summaryHash
   };
 
   res.send(result)

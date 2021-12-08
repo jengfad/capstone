@@ -6,13 +6,7 @@ contract Certificate {
     
     mapping (string => uint256) fileHashUserId;
     mapping (string => uint256) summaryHashUserId;
-        
-    function saveFileHashUserId(string memory _fileHash, uint256 _userId) 
-        public
-    {   
-       fileHashUserId[_fileHash] = _userId;
-    }
-    
+            
     function isFileHashUserIdExists(string memory _fileHash, uint256 _userId) 
         public view returns(bool)
     {
@@ -23,10 +17,11 @@ contract Certificate {
         return false;
     }
 
-    function saveSummaryHashUserId(string memory _summaryHash, uint256 _userId) 
+    function saveUserIdHashes(string memory _fileHash, string memory _summaryHash, uint256 _userId) 
         public
     {   
        summaryHashUserId[_summaryHash] = _userId;
+       fileHashUserId[_fileHash] = _userId;
     }
 
     function isSummaryHashUserIdExists(string memory _summaryHash, uint256 _userId) 

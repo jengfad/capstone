@@ -43,18 +43,19 @@ module.exports = {
         return result.recordset[0];
     },
 
-    getSummaryByFileHash: async (fileHash) => {
+    getSummaryByHash: async (summaryHash) => {
         const request = await dbUtil.createDbRequest();
-        request.input('FileHash', sql.NVarChar, fileHash);
+        request.input('SummaryHash', sql.NVarChar, summaryHash);
         const query = `
             SELECT	u.[FirstName]
+                    ,u.[ID] AS UserId
                     ,u.[LastName]
                     ,u.[Address]
                     ,c.[Summary]
             FROM dbo.[User] u
             INNER JOIN dbo.[Certificate] c
                 ON c.UserID = u.ID
-            WHERE c.FileHash = @FileHash
+            WHERE c.SummaryHash = @SummaryHash
         `;
         const result = await request.query(query.trim());
         return result.recordset[0];
