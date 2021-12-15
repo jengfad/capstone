@@ -1,0 +1,45 @@
+Keccak256 presets:
+bitrate_bits = 1088
+capacity_bits = 512
+output_bits = 256
+bitrate_bytes = 136 -- convert bitrate_bits to bytes
+
+multirate_padding(used_bytes, align_bytes)
+	padlength = align_bytes - used_bytes
+	zero_elements = [0] * padlength - 2
+	padding = [1] + zero_elements + [128]
+	return padding
+	
+	#example
+	#if used_bytes = 130, align_bytes = 136
+	#padlength = 136 - 130 = 6
+	#zero_elements = [0, 0, 0, 0]
+	#padding = [1, 0, 0, 0, 0 128]
+	
+-----------------------------------------------------------
+
+input_text = "hello world"
+
+1. Get byte array (input_byte_array) equivalent of input_text
+	input_byte_array = [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100]
+	
+2. Pad input_byte_array using multirate_padding
+	used_bytes = input_byte_array.length = 11 (count number of elements inside array)
+	align_bytes = presets.bitrate_bytes = 136
+	padded_bytes = [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128]
+	
+3. Append another batch of zero elements to padded_bytes
+	zero_count 	= convertToBytes ( (presets.bitrate_bits + presets.capacity_bits) - presets.bitrate_bits )
+				= convertToBytes((1088 + 512) - 1088)
+				= 64
+	zero_elements = [0] * 64
+	
+	padded_bytes += zero_elements
+				= [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+				
+4. Convert padded_bytes to array of lanes and put then in a 5x5 2D array.
+	- get a batch of 8 elements from padded_bytes
+	- batch1 = [104, 101, 108, 108, 111, 32, 119, 111]
+	- convertedBatch1ToLane = 
+	
+	
