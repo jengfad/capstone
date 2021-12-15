@@ -16,6 +16,29 @@ multirate_padding(used_bytes, align_bytes)
 	#zero_elements = [0, 0, 0, 0]
 	#padding = [1, 0, 0, 0, 0 128]
 	
+bytesToLane(input_bytes)
+	accumulator = 0
+	for b in reversed(input_bytes)
+		accumulator = ( accumulator << 8 ) | b
+		#apply 8 bitwise left shit to accumulator then XOR with b
+
+	return accumulator
+	
+	#example 
+	#input_bytes = [104, 101, 108, 108, 111, 32, 119, 111]
+	each iteration will result to (consecutively)
+	0
+	28416
+	7304960
+	1870077952
+	478739984128
+	122557435964416
+	31374703606918144
+	8031924123371070720
+	8031924123371070824
+	
+	#final value will be 8031924123371070824	
+	
 -----------------------------------------------------------
 
 input_text = "hello world"
@@ -37,9 +60,20 @@ input_text = "hello world"
 	padded_bytes += zero_elements
 				= [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 				
-4. Convert padded_bytes to array of lanes and put then in a 5x5 2D array.
+4. Convert padded_bytes to array of lanes (lane_array) and put then in a 5x5 2D array.
 	- get a batch of 8 elements from padded_bytes
-	- batch1 = [104, 101, 108, 108, 111, 32, 119, 111]
-	- convertedBatch1ToLane = 
+	- convertedBatch1ToLane = bytesToLane(batch)
+	- result will be:
+	[[8031924123371070824L, 0, 0, 0, 0], [23358578, 0, 0, 9223372036854775808L, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
 	
+5. Process lane_array to permutation_rounds (greek alphabet methods - theta, rho and phi, chi, iota)
+	lanew 	= (presets.bitrate_bits + presets.capacity_bits) // 25 #the floor division // rounds the result down to the nearest whole number
+			= 64
+	l 	= int(log(lanew, 2))
+		= 6
 	
+	number_of_rounds = 12 + 2 * l
+					 = 24
+					 
+	
+			
