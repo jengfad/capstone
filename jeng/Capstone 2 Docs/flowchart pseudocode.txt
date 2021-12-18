@@ -1,0 +1,26 @@
+Chapter 4 for flowcharts
+
+Patient Registration (User is Patient)
+- User inputs key details (full name, birthdate, address, password)
+- User confirm details and submits data
+- App generates public and private keys from inputted data
+- User is tagged as valid candidate for vaccine record creation
+
+Vaccine File Validation (User is 3rd Party)
+- User acccesses public validator page
+- User uploads vaccine file to be validated
+- App generates hash from file
+- App checks if hash exists
+- App sends notification
+
+Create vaccine certificate (User is Medical Unit)
+- User scans QR code of patient
+- If patient data and keys exist, proceed on details encoding
+	- encode vaccine details
+	- user to confirm details and submit
+	- generate vaccine certificate from details
+	- generate file hash from certificate
+	- encrpyt file using patient public key
+	- upload encrypted file to IPFS
+	- send filehash and summaryhash to blockchain
+  Else, prompt user to enter valid QR code or request patient to register
