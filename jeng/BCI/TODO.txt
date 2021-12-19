@@ -1,0 +1,3 @@
+- mask private key with user's raw password string
+- hash user's password before saving to db
+
