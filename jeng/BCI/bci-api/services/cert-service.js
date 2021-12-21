@@ -40,7 +40,11 @@ module.exports = {
         request.input('UserId', sql.Int, userId);
         const query = `SELECT * FROM [dbo].[Certificate] WHERE UserID = @UserId`;
         const result = await request.query(query.trim());
-        return result.recordset[0];
+
+        if (result.recordset.length > 0)
+            return result.recordset[0];
+        
+        return null;
     },
 
     getSummaryByHash: async (summaryHash) => {
@@ -76,6 +80,10 @@ module.exports = {
             WHERE u.ID = @UserId
         `;
         const result = await request.query(query.trim());
-        return result.recordset[0];
+
+        if (result.recordset.length > 0)
+            return result.recordset[0];
+        
+        return null;
     }
 }

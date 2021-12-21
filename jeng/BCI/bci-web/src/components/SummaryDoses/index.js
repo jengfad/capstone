@@ -1,10 +1,8 @@
 import React from "react";
 import "./style.scss";
-const SummaryDoses = ({ details }) => {
-
-    const {summary} = details;
-
+const SummaryDoses = ({ summary }) => {
     let vaxDoses = [];
+
     for (let key in summary) {
         let dose = summary[key];
         let vaxDate = dose["dateAdministered"];

@@ -43,6 +43,7 @@ const Login = () => {
         };
         
         const response = await fetch('/api/login', requestOptions);
+        console.log('response', response);
         const data = await response.json();
 
         if (data !== null) {

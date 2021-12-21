@@ -19,7 +19,7 @@ const PatientPage = () => {
         summaryHash: null
     });
 
-    const {file, summaryHash} = details;
+    const {file, summaryHash, summary, firstName} = details;
 
     const downloadFile = async () => {
         const binaryFile = await fileToBinary(file);
@@ -32,6 +32,10 @@ const PatientPage = () => {
         const url = `/api/summary/patient/${patientId}`;
         const response = await fetch(url);
         const data = await response.json();
+
+        if (!data)
+            return null;
+
         return data;
     }
 
@@ -39,6 +43,10 @@ const PatientPage = () => {
         const url = `/api/cert/patient/${patientId}`;
         const response = await fetch(url);
         const data = await response.json();
+
+        if (!data)
+            return null;
+
         const base64Param = `data:application/pdf;base64,${data.base64}`;
         return {
             file: dataURLtoFile(base64Param,'cert.pdf'),
@@ -46,20 +54,27 @@ const PatientPage = () => {
         };
     }
 
+    const fetchPatient = async () => {
+        const url = `/api/patient/${patientId}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    }
+
     useEffect(() => {
         const fetchData = async () => {
+            const patient = await fetchPatient();
             const cert = await fetchCertificate();
             const data = await fetchSummary();
-            const summary = JSON.parse(data.Summary);
             setDetails({ 
                 ...details,
-                firstName: data.FirstName,
-                lastName: data.LastName,
-                address: data.Address,
-                summary: summary,
-                summaryHash: data.SummaryHash,
-                file: cert.file,
-                fileHash: cert.fileHash
+                firstName: patient.FirstName,
+                lastName: patient.LastName,
+                address: patient.Address,
+                summary: !!data ? JSON.parse(data.Summary) : null,
+                summaryHash: data != null ? data.SummaryHash : null,
+                file: cert != null ? cert.file : null,
+                fileHash: cert != null ? cert.fileHash : null
             });
         }
 
@@ -68,25 +83,35 @@ const PatientPage = () => {
 
     return (
         <div className="d-flex justify-content-center my-5 flex-column flex-lg-row">
-            <div className="card m-3">
-                <div className="card-body">
-                    <SummaryView details={details} patientId={patientId}></SummaryView>
-                </div>
-            </div>
-            <div className="card m-3">
-                <div className="card-body">
-                    <SummaryDoses details={details}></SummaryDoses>
-                </div>
-            </div>
-            <div className="card m-3">
-                <div className="card-body d-flex flex-column align-items-center">    
-                    <h5>Vax Summary Code</h5>
-                    {summaryHash !== null && <QRCode value={summaryHash} />}
-                    <div className="mt-4">
-                        <button onClick={downloadFile} className="btn btn-primary mb-2">Download Certificate</button>
+            {
+                firstName != null &&
+                <div className="card m-3">
+                    <div className="card-body">
+                        <SummaryView details={details} patientId={patientId}></SummaryView>
                     </div>
                 </div>
-            </div>
+            }
+            {
+                !!summary &&
+                <div className="card m-3">
+                    <div className="card-body">
+                        <SummaryDoses summary={summary}></SummaryDoses>
+                    </div>
+                </div>
+            }
+            {
+                !!summary &&
+                <div className="card m-3">
+                    <div className="card-body d-flex flex-column align-items-center">    
+                        <h5>Vax Summary Code</h5>
+                        {summaryHash !== null && <QRCode value={summaryHash} />}
+                        <div className="mt-4">
+                            <button onClick={downloadFile} className="btn btn-primary mb-2">Download Certificate</button>
+                        </div>
+                    </div>
+                </div>
+            }
+            
         </div>
     );
 }

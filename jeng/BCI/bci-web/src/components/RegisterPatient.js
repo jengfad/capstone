@@ -27,7 +27,7 @@ const RegisterPatient = () => {
             body: JSON.stringify(user)
         };
 
-        fetch('api/register-patient', requestOptions)
+        fetch('/api/register-patient', requestOptions)
             .then(response => {
                 alert('Thank you for registering! You will be redirected to home page.');
             });

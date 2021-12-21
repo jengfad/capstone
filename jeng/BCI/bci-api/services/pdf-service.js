@@ -55,6 +55,7 @@ module.exports = {
                 .replace(/{{doseNumber}}/g, key.replace("dose", ""))
                 .replace(/{{brand}}/g, dose["brand"])
                 .replace(/{{vaccinator}}/g, dose["vaccinator"])
+                .replace(/{{batchNumber}}/g, dose["batchNumber"])
                 .replace(/{{site}}/g, dose["site"]);
             rows = rows + row;
         }

@@ -28,10 +28,11 @@ const SummaryValidate = () => {
         firstName: "",
         lastName: "",
         address: "",
-        firstDose: "",
-        secondDose: "",
+        summary: null,
         userId: null
     });
+    
+    const {summary} = details;
 
     useEffect(() => {
         if (window.location.href.indexOf("validate/summary-code") !== -1) {
@@ -74,8 +75,6 @@ const SummaryValidate = () => {
 
         let summaryHash = null;
 
-        console.log(data);
-
         try {
             summaryHash = data['text'];
         } catch {
@@ -83,9 +82,24 @@ const SummaryValidate = () => {
             return;
         }
 
-        alert('Successfully retrieved summaryHashCode')
-        const userId = await fetchData(summaryHash);
-        await checkSummaryHash(summaryHash, userId);
+        const summaryData = await fetchData(summaryHash);
+
+        if (!summaryData)
+            return;
+
+        console.log('data', summaryData);
+        const isExistInBc = await checkSummaryHash(summaryHash, summaryData.UserId);
+
+        if (isExistInBc) {
+            console.log('exists in bc')
+            setDetails({ 
+                ...details,
+                firstName: summaryData.FirstName,
+                lastName: summaryData.LastName,
+                address: summaryData.Address,
+                summary: !!summaryData ? JSON.parse(summaryData.Summary) : null
+            });
+        }
     }
 
     
@@ -97,23 +111,13 @@ const SummaryValidate = () => {
         const url = `/api/summary/${summaryHash}`;
         const response = await fetch(url);
         const data = await response.json();
-        const summary = JSON.parse(data.Summary);
-        setDetails({ 
-            ...details,
-            userId: data.UserId,
-            firstName: data.FirstName,
-            lastName: data.LastName,
-            address: data.Address,
-            summary: summary
-        });
-        return data.UserId;
+        return data;
     }
     
     const checkSummaryHash = async (summaryHash, userId) => {
         const contract = ethState.contract;
         const account = ethState.accounts[0];
         const isExists = await contract.isSummaryHashUserIdExists(summaryHash, userId, { from: account });
-        alert(`summaryHash - ${summaryHash} - ${isExists}`);
         return isExists;
     }
 
@@ -136,7 +140,7 @@ const SummaryValidate = () => {
                 />
             </div>
             {
-                !!details && details !== null && details.userId !== null &&
+                !!summary &&
                 <div class="d-flex">
                     <div className="card mx-5">
                         <div className="card-body">
@@ -145,7 +149,7 @@ const SummaryValidate = () => {
                     </div>            
                     <div className="card m-3">
                         <div className="card-body">
-                            <SummaryDoses details={details}></SummaryDoses>
+                            <SummaryDoses summary={summary}></SummaryDoses>
                         </div>
                     </div>
                 </div>

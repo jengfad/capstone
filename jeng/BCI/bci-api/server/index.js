@@ -40,6 +40,12 @@ app.get('/api/patient/:id', async (req, res, next) => {
 app.get('/api/cert/patient/:patientId', async (req, res, next) => {
   const userId = req.params.patientId;
   const certRecord = await certService.getCertificateByUserId(userId);
+
+  if (certRecord == null) {
+    res.send(false);
+    return;
+  }
+
   const cid = certRecord.CID;
   
   const encryptedFile = await ipfsService.getFile(cid);
@@ -56,6 +62,12 @@ app.get('/api/cert/patient/:patientId', async (req, res, next) => {
 app.get('/api/summary/patient/:patientId', async(req, res, next) => {
   const userId = req.params.patientId;
   const record = await certService.getSummaryByUserId(userId);
+
+  if (record == null) {
+    res.send(false);
+    return;
+  }
+  
   res.send(record);
 })
 
@@ -79,14 +91,17 @@ app.post('/api/login', async (req, res, next) => {
   res.send(result);
 });
 
-app.post('/api/cert/validate', async (req, res, next) => {
+app.post('/api/cert/get-hash', async (req, res, next) => {
   let file = req.files.file.data;
   const fileHash = pgpService.getFileBufferHash(file);
+  console.log('filehash', fileHash);
+  res.send({fileHash: fileHash});
+  // console.log('validate certificate')
 
-  // TODO - validate against blockchain
-  const record = await certService.getSummaryByFileHash(fileHash);
-  const isValid = !!record && record !== null;
-  res.send(isValid);
+  // // TODO - validate against blockchain
+  // const record = await certService.getSummaryByFileHash(fileHash);
+  // const isValid = !!record && record !== null;
+  // res.send(isValid);
 });
 
 app.get('/api/delete-cert/:userid', async (req, res, next) => {
@@ -104,6 +119,7 @@ app.get('/api/generate-qr', async (req, res, next) => {
 
 app.post('/api/create-vaccine-record', async (req, res, next) => {
   const details = req.body;
+
   await certService.deleteCertificate(details.patientId);
   const certFilePath = await pdfService.generatePdf(req.body);
   const fileBuffer = fs.readFileSync(certFilePath);

@@ -6,7 +6,19 @@ contract Certificate {
     
     mapping (string => uint256) fileHashUserId;
     mapping (string => uint256) summaryHashUserId;
-            
+    
+    function getFileHash(string memory _fileHash)
+        public view returns(uint256)
+    {
+        return fileHashUserId[_fileHash];
+    }
+
+    function getSummaryHash(string memory _summaryHash)
+        public view returns(uint256)
+    {
+        return summaryHashUserId[_summaryHash];
+    }
+
     function isFileHashUserIdExists(string memory _fileHash, uint256 _userId) 
         public view returns(bool)
     {

@@ -7,6 +7,7 @@ module.exports = {
         const request = await dbUtil.createDbRequest();
         const fullName = `${model.firstName} ${model.lastName}`;
         const keys = await pgpService.generateKeyPair(fullName, model.email);
+        const hashedPassword = pgpService.getStringHash(model.password);
 
         request.input('FirstName', sql.NVarChar, model.firstName);
         request.input('LastName', sql.NVarChar, model.lastName);
@@ -15,7 +16,7 @@ module.exports = {
         request.input('Birthdate', sql.NVarChar, model.birthdate);
         request.input('PublicKey', sql.NVarChar, keys.publicKey);
         request.input('EncryptedPrivateKey', sql.NVarChar, keys.privateKey);
-        request.input('HashedPassword', sql.NVarChar, 'password123');
+        request.input('HashedPassword', sql.NVarChar, hashedPassword);
 
         const query = `
         INSERT INTO [dbo].[User]
@@ -26,6 +27,7 @@ module.exports = {
            ,[Birthdate]
            ,[PublicKey]
            ,[EncryptedPrivateKey]
+           ,[RoleID]
            ,[HashedPassword])
         VALUES
             (@FirstName
@@ -35,6 +37,7 @@ module.exports = {
             ,@Birthdate
             ,@PublicKey
             ,@EncryptedPrivateKey
+            ,1
             ,@HashedPassword)`;
         
         await request.query(query.trim());
@@ -42,11 +45,12 @@ module.exports = {
 
     getUserByEmailPassword: async (email, password, roleId) => {
         const request = await dbUtil.createDbRequest();
+        const hashedPassword = pgpService.getStringHash(password);
         request.input('Email', sql.NVarChar, email);
-        request.input('Password', sql.NVarChar, password);
+        request.input('Password', sql.NVarChar, hashedPassword);
         request.input('RoleID', sql.Int, roleId);
 
-        console.log(`${email} - ${password} - ${roleId}`);
+        console.log(`${email} - ${hashedPassword} - ${roleId}`);
 
         const query = `
             SELECT	u.[ID]
@@ -58,6 +62,7 @@ module.exports = {
             AND u.RoleID = @RoleID
         `;
         const result = await request.query(query.trim());
+        console.log(result.recordset[0])
         return result.recordset[0];
     },
 
