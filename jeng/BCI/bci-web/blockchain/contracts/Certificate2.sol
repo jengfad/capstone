@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity >=0.5.0 <0.9.0;
+pragma solidity =0.8.8;
 
 contract Certificate {
     mapping(string => uint256) private fileHashUserId;
@@ -16,14 +16,14 @@ contract Certificate {
         _;
     }
 
-    function isFileHashUserIdExists(string calldata _fileHash, uint256 _userId)
+    function isFileHashUserIdExists(string calldata fileHash, uint256 userId)
         external
         view
         returns (bool)
     {
-        string memory fileHash = _fileHash;
+        string memory fileHashStr = fileHash;
 
-        if (fileHashUserId[fileHash] == _userId) {
+        if (fileHashUserId[fileHashStr] == userId) {
             return true;
         }
 
@@ -31,24 +31,24 @@ contract Certificate {
     }
 
     function saveUserIdHashes(
-        string calldata _fileHash,
-        string calldata _summaryHash,
-        uint256 _userId
+        string calldata fileHash,
+        string calldata summaryHash,
+        uint256 userId
     ) external onlyOwner {
-        string memory fileHash = _fileHash;
-        string memory summaryHash = _summaryHash;
+        string memory fileHashStr = fileHash;
+        string memory summaryHashStr = summaryHash;
 
-        summaryHashUserId[summaryHash] = _userId;
-        fileHashUserId[fileHash] = _userId;
+        summaryHashUserId[summaryHashStr] = userId;
+        fileHashUserId[fileHashStr] = userId;
     }
 
     function isSummaryHashUserIdExists(
-        string calldata _summaryHash,
-        uint256 _userId
+        string calldata summaryHash,
+        uint256 userId
     ) external view returns (bool) {
-        string memory summaryHash = _summaryHash;
+        string memory summaryHashStr = summaryHash;
 
-        if (summaryHashUserId[summaryHash] == _userId) {
+        if (summaryHashUserId[summaryHashStr] == userId) {
             return true;
         }
 
