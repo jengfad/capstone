@@ -1,0 +1,26 @@
+- fix diagram
+	- technical (add database diagram)
+	- functional
+	- fix flowcharts (especially user actor terms)
+- fix functional requirements
+- additional definition of terms
+- additional RRL
+- parallel results and discussions with objectives
+
+------------------------------------------------------------
+
+from recording
+- prove immutability - results and discussion
+	- database tampering 
+	
+- objective #3 - shorten objective
+- objective #2 - apply concept of merkle dag - specific concept of merkle dag to be applied (about hasing, or mekrle tree?)
+- Include NIST audit on objective #3 - accuracy
+- scope and limitation - data structure of blockchain (schema) - storage structure
+- speed and volume - when too many is accessing the site
+- rrl 
+- effectivity of security scans
+- network diagram
+- definition of terms
+- technical specification / requirement specification
+- database architectural diagram
