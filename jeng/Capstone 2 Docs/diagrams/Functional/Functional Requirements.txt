@@ -1,0 +1,30 @@
+1. Users
+Those who will primarily benefit from the new system and those who will be affected by the new system include:
+Patients
+- They will provide data and in turn will be converted to information needed to generate vaccine certificates. The application will be a facility for viewing their vaccine record and provide QR codes that can be verified by other parties.
+
+Medical Unit
+- They will create vaccine record for recognized patients by the system. 
+
+Verifying 3rd Party
+- They will have the capability to verify patient's info via uploading vaccine certificates or scanning vaccine QR code. It will be easier for them to validate any vaccine-related information.
+
+2. Responsibilities
+The primary responsibilities of the application are:
+- provide patient easy access to their vaccine information
+- allow external parties (private companies, mall establishments) to verify vaccine records 
+- automatic vaccine certificate generation once necessary information is available
+- ease of use for medical personnel in the upkeep of vaccine records
+- provide other means of uniqueness such as QR code to verify authenticity
+- maintain data integrity by storing information in a blockchain setup
+
+3. Functional Requirements
+- The application shall allow patients to download vaccine certificates and view their vaccine record
+- The application shall provide QR codes for patient information and vaccine information
+- The application shall store transactions in a blockchain network
+- The application shall store encrypted files in IPFS
+- The application shall allow 3rd parties to verify vaccine information authenticity either via uploading a file or scanning a QR code
+- The application shall provide a facility for medical unit to input vaccination transaction and records
+- The application shall generate QR code and vaccine certificates once patient vaccine information is available
+
+

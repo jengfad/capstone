@@ -1,0 +1,15 @@
+Cipher text - A series of randomized letters and numbers which humans cannot make any sense of.
+Content addressing - A way to find data in a network using its content rather than its location.
+Content Identifier (CID) - A label used to point to material in IPFS. It doesn't indicate where the content is stored, but it forms a kind of address based on the content itself. CIDs are short, regardless of the size of their underlying content.
+Cryptography - Science of secret writing with the intention of keeping the data secret. 
+Digital Envelope - A secure electronic data container that is used to protect a message through encryption and data authentication.
+Digital Signature - A cryptographic value that is calculated from the data and a secret key known only by the signer.
+Distributed Hash Table (DHT) - A decentralized data store that looks up data based on key-value pairs.
+Hash Digest - Output of the hash function.
+Hashing - Process that calculates a fixed-size bit string value from a file.
+Hash Table - A type of data structure that stores key-value pairs. The key is sent to a hash function that performs arithmetic operations on it.
+InterPlanetary File System (IPFS) - A protocol and peer-to-peer network for storing and sharing data in a distributed file system.
+Peer-to-Peer (P2P) Network - A group of computers are linked together with equal permissions and responsibilities for processing data.
+Plain Text - Clear, basic unencrypted string of text.
+Private Key - Used to decrypt cipher text to plain text and only available to its owner.
+Public Key - Used to encrypt plain text to cipher text and available to anyone accessing the application.
