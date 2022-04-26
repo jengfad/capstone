@@ -114,15 +114,6 @@ const CertificateUpload = () => {
 
     return (
         <div className="d-flex justify-content-around">
-            {/* <div>
-                <h3>Manual Triggers</h3>
-                <br />
-                <button onClick={() => manualSendToBc()}>Manual Send to blockchain</button>
-                <br /><br />
-                <button onClick={() => checkFileHash()}>Manual Check Filehash</button>
-                <br /><br />
-                <button onClick={() => checkSummaryHash()}>Manual Check SummaryHash</button>
-            </div> */}
             <div>
                 <ScanPatientId handlePatientDetails={handlePatientDetails}></ScanPatientId>
             </div>
