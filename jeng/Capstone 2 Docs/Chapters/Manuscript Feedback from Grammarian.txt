@@ -1,16 +1,20 @@
 - Page 2 - Table of contents - follow format (i, ii, iii)
 - Page 31
-	- move Present State and Proposed Documents Structure after theories and concept
+	- 
 - Page 34
-	- Remove paragraph about Satoshi Nakamoto
+	- 
 - Page 35
-	- use 3rd person
+	- 
 - Page 40
-	- add table descriptions
+	- 
 - Page 42
-	- not sure what to dooo???
+	- 
 - Page 43
 	- tense
+	
+	
+	
+	
 - Page 44
 	- use past tense on entire chapter
 	- remove description of chapter
@@ -25,18 +29,11 @@
 - Page 52
 	- remove title
 - Page 70
-	- remove chapter description
-	- tense
-	- Create table of functionality
-- Page 78 - 79 ????
-- Page 80
-- Page 90, 91
-- Page 99
-	- tabulate result
-- Page 101
-	- remove title
-- Page 103
-- Page 104
-- Page 105
+	- 
+	
+	
+	
+
+
 - Page 109
 - Page 110
