@@ -1,0 +1,66 @@
+- Page 2 - Table of contents - follow format (i, ii, iii)
+- Page 6 - Introduction
+	- this will be formally Page 1
+	- No need to write the title of the study should follow the below format
+		- In the study of Tsai and Bond (2007)
+		- The work of Khalifa (2008) presented
+		- Avoid using 'They' when referring to authors. Use 'One author mentioned' or 'The authors stated'
+- Page 7
+	- avoid using 'our', use 3rd person pronoun
+		- wrong - 'Our country'
+		- correct - 'The Philippines'
+	- see other comments
+- Page 8
+	- remove 'Local Government Units (LGUs)', replace it with LGUs
+	- spell out abbreviation (IPFS)
+	- remove news article reference in statement of the problem
+- Page 9
+	- 1.4 Scope and Limitations - use past tense
+	- 1.5 Significance of the Study - use present tense
+- Page 15
+	- add subheader 'Literature Mapping'
+	- change image/figure caption
+- Page 16
+	- remove description of chapter
+	- add 2.2 Related Lit sub header
+- Page 31
+	- move Present State and Proposed Documents Structure after theories and concept
+- Page 34
+	- Remove paragraph about Satoshi Nakamoto
+- Page 35
+	- use 3rd person
+- Page 40
+	- add table descriptions
+- Page 42
+	- not sure what to dooo???
+- Page 43
+	- tense
+- Page 44
+	- use past tense on entire chapter
+	- remove description of chapter
+- Page 45
+	- remove 'The study will be focused on'
+- Page 46
+	- transfer image to appendix
+- Page 48
+	- tense
+- Page 50
+- Page 51
+- Page 52
+	- remove title
+- Page 70
+	- remove chapter description
+	- tense
+	- Create table of functionality
+- Page 78 - 79 ????
+- Page 80
+- Page 90, 91
+- Page 99
+	- tabulate result
+- Page 101
+	- remove title
+- Page 103
+- Page 104
+- Page 105
+- Page 109
+- Page 110
